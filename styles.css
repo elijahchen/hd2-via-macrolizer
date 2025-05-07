@@ -1,0 +1,431 @@
+/* General Styles */
+:root {
+  --primary-color: #d64045;
+  --secondary-color: #2c3e50;
+  --background-color: #f0f2f5;
+  --light-gray: #e0e0e0;
+  --dark-gray: #333;
+  --success-color: #27ae60;
+  --hover-color: #e74c3c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--dark-gray);
+  background-color: var(--background-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: 5px;
+}
+
+h1, h2, h3 {
+  margin-bottom: 15px;
+}
+
+section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  color: var(--dark-gray);
+}
+
+footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Upload Section */
+.file-upload {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.file-upload input[type="file"] {
+  position: absolute;
+  left: -9999px;
+}
+
+.upload-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.upload-button:hover {
+  background-color: var(--hover-color);
+}
+
+#file-name {
+  margin-left: 15px;
+  color: var(--dark-gray);
+}
+
+#upload-status {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#upload-status.success {
+  background-color: rgba(39, 174, 96, 0.2);
+  color: var(--success-color);
+}
+
+#upload-status.error {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: var(--hover-color);
+}
+
+/* Stratagem Selection */
+.macro-slots {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.macro-slot {
+  flex: 1;
+  min-width: 150px;
+  margin: 10px;
+  padding: 15px;
+  background-color: var(--light-gray);
+  border-radius: 5px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.slot-label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.selected-stratagem {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.selected-stratagem img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.clear-slot-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.clear-button {
+  background-color: var(--light-gray);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5px;
+}
+
+.clear-button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.clear-all-button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5px;
+  font-weight: bold;
+}
+
+.clear-all-button:hover {
+  background-color: var(--primary-color);
+}
+
+.stratagem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.stratagem-type-header {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  padding: 10px 0;
+  margin-top: 15px;
+  border-bottom: 2px solid var(--light-gray);
+}
+
+
+.stratagem-item {
+  padding: 5px;
+  background-color: var(--light-gray);
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.stratagem-item:hover {
+  transform: translateY(-5px);
+  background-color: #d3d3d3;
+}
+
+.stratagem-icon {
+  height: 50px;
+  width: 100%;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-icon {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-image {
+  max-width: 100%;
+  max-height: 45px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+/* Specific styling for SVG icons and general stratagems */
+.icon-image[src$=".svg"],
+.stratagem-item[data-type="General"] .icon-image {
+  background-color: black;
+  padding: 5px;
+}
+
+
+.stratagem-name {
+  font-size: 0.8rem;
+  font-weight: bold;
+  height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 2px;
+}
+
+.stratagem-code {
+  font-size: 0.7rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  height: 12px;
+  overflow: hidden;
+}
+
+.slot-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.slot-icon {
+  max-width: 100%;
+  max-height: 40px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+/* Specific styling for SVG icons in slots and general stratagems */
+.slot-icon[src$=".svg"],
+.slot-content[data-type="General"] .slot-icon {
+  background-color: black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.slot-code {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  width: 80%;
+  text-align: center;
+}
+
+.slot-name {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.empty-slot {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-style: italic;
+  background-color: white;
+  width: 100%;
+  border-radius: 5px;
+}
+
+/* Preview Section */
+.macro-preview {
+  margin-bottom: 30px;
+}
+
+.preview-slot {
+  display: flex;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: var(--light-gray);
+  border-radius: 5px;
+}
+
+.preview-label {
+  width: 60px;
+  font-weight: bold;
+}
+
+.preview-content {
+  flex: 1;
+  word-break: break-all;
+}
+
+.download-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+  display: block;
+  margin: 0 auto;
+}
+
+.download-button:hover {
+  background-color: var(--hover-color);
+}
+
+.download-button:disabled {
+  background-color: var(--light-gray);
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* Macro Slots Dropdown */
+.macro-slots-dropdown-container {
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: var(--light-gray);
+  border-radius: 5px;
+}
+
+.macro-slots-dropdown-container h3 {
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.dropdown-description {
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.slot-dropdown-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 5px 0;
+}
+
+.slot-dropdown-row label {
+  min-width: 80px;
+  font-weight: bold;
+}
+
+.macro-slot-select {
+  flex: 1;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+}
+
+.macro-slot-select option {
+  padding: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .macro-slots {
+    flex-direction: column;
+  }
+  
+  .macro-slot {
+    margin: 10px 0;
+  }
+  
+  .stratagem-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}

@@ -1,0 +1,53 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+CLAUDE.md
+
+# Zone.Identifier files (Windows WSL)
+*:Zone.Identifier
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.editorconfig
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+.tmp/
+temp/
+
+# Build artifacts
+dist/
+build/
+
+# Debug files
+debug_*.js
+debug_*.html
+
+# Project utility scripts (not necessary for core functionality)
+copy_placeholder.sh
+create_placeholders.js
+download_stratagem_icons.sh
+test_stratagems.js
+README_*.md
+
+# Example files
+example-*.json
+custom*.json
+
+# Temporary test directories
+/tmp/
+/test/
