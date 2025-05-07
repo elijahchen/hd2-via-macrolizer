@@ -53,7 +53,7 @@ const stratagemData = [
     code: "DULDURUD",
     type: "General",
     iconUrl: getWikiIconUrl("NUX-223_Hellbomb"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}"
   },
   {
     name: "SEAF Artillery",

@@ -797,11 +797,38 @@ function handleDownload() {
   // Create a copy of the JSON data
   const updatedJsonData = JSON.parse(JSON.stringify(uploadedJsonData));
   
+  // Helper to safely update macro while preserving structure
+  function updateMacro(index, macroString) {
+    const currentMacro = updatedJsonData.macros[index];
+    
+    // If the current macro is an object, preserve its structure
+    if (typeof currentMacro === 'object' && currentMacro !== null) {
+      // Only update the contents property where the macro string is stored
+      currentMacro.contents = macroString;
+      return currentMacro;
+    } else {
+      // If it's a string or doesn't exist, just use the macro string directly
+      return macroString;
+    }
+  }
+  
   // Update the macros array for the selected slots using the macroIndices map
-  updatedJsonData.macros[macroIndices.m121] = selectedStratagems.m121 ? selectedStratagems.m121.macroString : '';
-  updatedJsonData.macros[macroIndices.m122] = selectedStratagems.m122 ? selectedStratagems.m122.macroString : '';
-  updatedJsonData.macros[macroIndices.m123] = selectedStratagems.m123 ? selectedStratagems.m123.macroString : '';
-  updatedJsonData.macros[macroIndices.m124] = selectedStratagems.m124 ? selectedStratagems.m124.macroString : '';
+  // Preserve the macro structure (object with properties) if it exists
+  if (selectedStratagems.m121) {
+    updatedJsonData.macros[macroIndices.m121] = updateMacro(macroIndices.m121, selectedStratagems.m121.macroString);
+  }
+  
+  if (selectedStratagems.m122) {
+    updatedJsonData.macros[macroIndices.m122] = updateMacro(macroIndices.m122, selectedStratagems.m122.macroString);
+  }
+  
+  if (selectedStratagems.m123) {
+    updatedJsonData.macros[macroIndices.m123] = updateMacro(macroIndices.m123, selectedStratagems.m123.macroString);
+  }
+  
+  if (selectedStratagems.m124) {
+    updatedJsonData.macros[macroIndices.m124] = updateMacro(macroIndices.m124, selectedStratagems.m124.macroString);
+  }
   
   // Convert JSON back to string
   const jsonString = JSON.stringify(updatedJsonData, null, 2);
