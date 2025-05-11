@@ -234,10 +234,10 @@ const stratagemData = [
   },
   {
     name: "StA-X3_W.A.S.P. Launcher",
-    code: "DDULU",
+    code: "DDUDR",
     type: "Support Weapons",
     iconUrl: getWikiIconUrl("StA-X3_W.A.S.P._Launcher"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}"
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
   },
   
   // Supply
