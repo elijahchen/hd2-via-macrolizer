@@ -129,10 +129,10 @@ const stratagemData = [
   },
   {
     name: "M-105 Stalwart",
-    code: "DLDUL",
+    code: "DLDUUL",
     type: "Support Weapons",
     iconUrl: getWikiIconUrl("M-105_Stalwart"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
   },
   {
     name: "EAT-17 Expendable Anti-Tank",
@@ -345,7 +345,7 @@ const stratagemData = [
   },
   {
     name: "E/FLAM-40 Flame Sentry",
-    code: "DURDUP",
+    code: "DURDUU",
     type: "Defense",
     iconUrl: getWikiIconUrl("E_FLAM-40_Flame_Sentry"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_UP}{15}{-KC_UP}{15}"
@@ -408,10 +408,10 @@ const stratagemData = [
   },
   {
     name: "E/AT-12 Anti-Tank Emplacement",
-    code: "LLUURL",
+    code: "DULRRR",
     type: "Defense",
     iconUrl: getWikiIconUrl("E_AT-12_Anti-Tank_Emplacement"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
   },
   {
     name: "FX-12 Shield Generator Relay",
