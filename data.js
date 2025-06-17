@@ -587,12 +587,10 @@ const stratagemData = [
     iconUrl: getWikiIconUrl("Eagle_500kg_Bomb"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
   },
-  
-  // Additional Stratagems
   {
     name: "CQC-1 One True Flag",
     code: "DLRRU",
-    type: "General",
+    type: "Support Weapons",
     iconUrl: getWikiIconUrl("CQC-1_One_True_Flag"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}"
   },
