@@ -51,3 +51,4 @@ custom*.json
 # Temporary test directories
 /tmp/
 /test/
+.aider*
