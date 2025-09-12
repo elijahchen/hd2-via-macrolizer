@@ -220,10 +220,10 @@ const stratagemData = [
   },
   {
     name: "MLS-4X Commando",
-    code: "DLDUURL",
+    code: "DLUDR",
     type: "Support Weapons",
     iconUrl: getWikiIconUrl("MLS-4X_Commando"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
   },
   {
     name: "RL-77 Airburst Rocket Launcher",
@@ -238,6 +238,48 @@ const stratagemData = [
     type: "Support Weapons",
     iconUrl: getWikiIconUrl("StA-X3_W.A.S.P._Launcher"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
+  },
+  {
+    name: "GL-52 De-Escalator",
+    code: "LRULR",
+    type: "Support Weapons",
+    iconUrl: getWikiIconUrl("GL-52 De-Escalator"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
+  },
+  {
+    name: "PLAS-45 Epoch",
+    code: "DLULR",
+    type: "Support Weapons",
+    iconUrl: getWikiIconUrl("PLAS-45_Epoch"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
+  },
+  {
+    name: "S-11 Speargun",
+    code: "DRDLUR",
+    type: "Support Weapons",
+    iconUrl: getWikiIconUrl("S-11_Speargun"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
+  },
+  {
+    name: "EAT-700 Expendable Napalm",
+    code: "DDLUL",
+    type: "Support Weapons",
+    iconUrl: getWikiIconUrl("EAT-700_Expendable_Napalm"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
+  },
+  {
+    name: "MS-11 Solo Silo",
+    code: "DURDL",
+    type: "Support Weapons",
+    iconUrl: getWikiIconUrl("MS-11_Solo_Silo"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
+  },
+  {
+    name: "CQC-1 One True Flag",
+    code: "DLRRU",
+    type: "Support Weapons",
+    iconUrl: getWikiIconUrl("CQC-1_One_True_Flag"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}"
   },
   
   // Supply
@@ -334,6 +376,13 @@ const stratagemData = [
     iconUrl: getWikiIconUrl("B-100_Portable_Hellbomb"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_UP}{15}{-KC_UP}{15}"
   },
+  {
+    name: "LIFT-182 Warp Pack",
+    code: "DLRDLR",
+    type: "Backpack",
+    iconUrl: getWikiIconUrl("LIFT-182 Warp Pack"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
+  },
   
   // Defense
   {
@@ -386,6 +435,13 @@ const stratagemData = [
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
   },
   {
+    name: "A/LAS-98 Laser Sentry",
+    code: "DURDUR",
+    type: "Defense",
+    iconUrl: getWikiIconUrl("A_LAS-98_Laser_Sentry"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
+  },
+  {
     name: "E/MG-101 HMG Emplacement",
     code: "DULRRL",
     type: "Defense",
@@ -401,10 +457,10 @@ const stratagemData = [
   },
   {
     name: "E/GL-21 Grenadier Battlement",
-    code: "DDLRLR",
+    code: "DRDLR",
     type: "Defense",
     iconUrl: getWikiIconUrl("E_GL-21_Grenadier_Battlement"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
   },
   {
     name: "E/AT-12 Anti-Tank Emplacement",
@@ -468,10 +524,10 @@ const stratagemData = [
   },
   {
     name: "Orbital 120mm HE Barrage",
-    code: "RDLRD",
+    code: "RRDLRD",
     type: "Orbital",
     iconUrl: getWikiIconUrl("Orbital_120mm_HE_Barrage"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
   },
   {
     name: "Orbital 380mm HE Barrage",
@@ -586,20 +642,6 @@ const stratagemData = [
     type: "Eagle",
     iconUrl: getWikiIconUrl("Eagle_500kg_Bomb"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
-  },
-  {
-    name: "CQC-1 One True Flag",
-    code: "DLRRU",
-    type: "Support Weapons",
-    iconUrl: getWikiIconUrl("CQC-1_One_True_Flag"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}"
-  },
-  {
-    name: "GL-52 De-Escalator",
-    code: "LRULR",
-    type: "Support Weapons",
-    iconUrl: getWikiIconUrl("GL-52_De-Escalator"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
   }
 ];
 
