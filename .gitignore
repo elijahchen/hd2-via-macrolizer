@@ -52,3 +52,6 @@ custom*.json
 /tmp/
 /test/
 .aider*
+
+# Local AI agent rules file (do not commit)
+WARP.md

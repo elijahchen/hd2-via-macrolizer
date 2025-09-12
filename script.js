@@ -141,6 +141,7 @@ function getLocalIconPaths(stratagem) {
     return [
       `icons/stratagems/Upload_Data_Stratagem_Icon.svg`,
       `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${directFileName}_Icon.png`,
       `icons/stratagems/${wikiSlug}.png`
     ];
   }
@@ -150,6 +151,7 @@ function getLocalIconPaths(stratagem) {
     `icons/stratagems/${snakeSlug}.png`,
     `icons/stratagems/${wikiSlug}.png`,
     `icons/stratagems/${directWithSuffix}.png`,
+    `icons/stratagems/${directFileName}_Icon.png`,
     `icons/stratagems/${noHyphenSlug}.png`,
     `icons/stratagems/${directFileName}.png`
   ];
