@@ -171,10 +171,10 @@ const stratagemData = [
   },
   {
     name: "RS-422 Railgun",
-    code: "DRLDUL",
+    code: "DRDULR",
     type: "Support Weapons",
     iconUrl: getWikiIconUrl("RS-422_Railgun"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
   },
   {
     name: "FAF-14 Spear Launcher",
@@ -212,11 +212,11 @@ const stratagemData = [
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
   },
   {
-    name: "TX-14 Sterilizer",
-    code: "DLDURL",
+    name: "TX-41 Sterilizer",
+    code: "DLUDL",
     type: "Support Weapons",
-    iconUrl: getWikiIconUrl("TX-14_Sterilizer"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
+    iconUrl: getWikiIconUrl("TX-41_Sterilizer"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
   },
   {
     name: "MLS-4X Commando",
@@ -227,10 +227,10 @@ const stratagemData = [
   },
   {
     name: "RL-77 Airburst Rocket Launcher",
-    code: "DDURD",
+    code: "DUULR",
     type: "Support Weapons",
     iconUrl: getWikiIconUrl("RL-77_Airburst_Rocket_Launcher"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
   },
   {
     name: "StA-X3_W.A.S.P. Launcher",
@@ -241,10 +241,10 @@ const stratagemData = [
   },
   {
     name: "GL-52 De-Escalator",
-    code: "LRULR",
+    code: "DRULR",
     type: "Support Weapons",
     iconUrl: getWikiIconUrl("GL-52 De-Escalator"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
   },
   {
     name: "PLAS-45 Epoch",
@@ -269,10 +269,10 @@ const stratagemData = [
   },
   {
     name: "MS-11 Solo Silo",
-    code: "DURDL",
+    code: "DURDD",
     type: "Support Weapons",
     iconUrl: getWikiIconUrl("MS-11_Solo_Silo"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
   },
   {
     name: "CQC-1 One True Flag",
@@ -280,6 +280,20 @@ const stratagemData = [
     type: "Support Weapons",
     iconUrl: getWikiIconUrl("CQC-1_One_True_Flag"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}"
+  },
+  {
+    name: "M-1000 Maxigun",
+    code: "DLRDUU",
+    type: "Support Weapons",
+    iconUrl: getWikiIconUrl("M-1000_Maxigun"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_UP}{15}{-KC_UP}{15}"
+  },
+  {
+    name: "CQC-9 Defoliation Tool",
+    code: "DLRRD",
+    type: "Support Weapons",
+    iconUrl: getWikiIconUrl("CQC-9_Defoliation_Tool"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
   },
   
   // Supply
@@ -292,10 +306,10 @@ const stratagemData = [
   },
   {
     name: "EXO-49 Emancipator Exosuit",
-    code: "LDRULD",
+    code: "LDRULDU",
     type: "Supply",
     iconUrl: getWikiIconUrl("EXO-49_Emancipator_Exosuit"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}"
   },
   {
     name: "EXO-45 Patriot Exosuit",
@@ -382,6 +396,20 @@ const stratagemData = [
     type: "Backpack",
     iconUrl: getWikiIconUrl("LIFT-182 Warp Pack"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
+  },
+  {
+    name: "AX/ARC-3 Guard Dog K-9",
+    code: "DULURL",
+    type: "Backpack",
+    iconUrl: getWikiIconUrl("AX_ARC-3_Guard_Dog_K-9"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
+  },
+  {
+    name: "AX/FLAM-75 Guard Dog Hot Dog",
+    code: "DULULL",
+    type: "Backpack",
+    iconUrl: getWikiIconUrl("AX_FLAM-75_Guard_Dog_Hot_Dog"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
   },
   
   // Defense
@@ -538,7 +566,7 @@ const stratagemData = [
   },
   {
     name: "Orbital Walking Barrage",
-    code: "RDRDRDR",
+    code: "RDRDRD",
     type: "Orbital",
     iconUrl: getWikiIconUrl("Orbital_Walking_Barrage"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
