@@ -13,24 +13,19 @@
       <p>Upload your VIA JSON file and select stratagems for your keyboard macros</p>
     </header>
 
-    <section class="upload-section">
-      <h2>Step 1: Upload VIA JSON File (Optional)</h2>
-      <p class="section-description">Upload a VIA JSON to modify and download, or skip to connect directly to your keyboard.</p>
-      <div class="file-upload">
-        <input type="file" id="jsonFileInput" accept=".json">
-        <label for="jsonFileInput" class="upload-button">Choose File</label>
-        <span id="file-name">No file chosen</span>
-      </div>
-      <div id="upload-status"></div>
-    </section>
-
     <section class="device-section">
-      <h2>Or: Connect to Keyboard Directly</h2>
-      <p class="section-description">Connect via WebHID to upload macros directly to your VIA-compatible keyboard.</p>
+      <h2>Step 1: Connect or Load Configuration</h2>
+      <p class="section-description">Connect via WebHID to upload directly, or load a VIA JSON file to modify and download.</p>
       <div class="device-controls">
         <button id="connect-button" class="connect-button">Connect to Keyboard</button>
         <button id="disconnect-button" class="disconnect-button" disabled>Disconnect</button>
+        <div class="file-upload-inline">
+          <input type="file" id="jsonFileInput" accept=".json">
+          <label for="jsonFileInput" class="upload-button">Load JSON File</label>
+          <span id="file-name">No file chosen</span>
+        </div>
       </div>
+      <div id="upload-status"></div>
       <div id="device-status" class="device-status">
         <span class="status-indicator disconnected"></span>
         <span class="status-text">No keyboard connected</span>
@@ -64,10 +59,17 @@
       <div id="webhid-warning" class="webhid-warning" style="display: none;">
         ⚠️ WebHID is not supported in this browser. Please use Chrome, Edge, or Opera.
       </div>
+      <div class="action-buttons">
+        <button id="upload-to-keyboard-button" class="upload-to-keyboard-button" disabled>Upload to Keyboard</button>
+        <button id="download-button" class="download-button" disabled>Download JSON</button>
+      </div>
+      <div id="upload-progress" class="upload-progress" style="display: none;">
+        <span class="progress-text">Uploading macros...</span>
+      </div>
     </section>
 
     <section class="stratagem-section">
-      <h2>Step 2: Select Stratagems for Macro Slots</h2>
+      <h2>Step 2: Select Stratagems</h2>
       <div class="macro-slots">
         <div class="macro-slot" id="slot1">
           <div class="slot-label">Slot 1</div>
@@ -102,7 +104,7 @@
     </section>
 
     <section class="preview-section">
-      <h2>Step 3: Preview and Download</h2>
+      <h2>Step 3: Macro Preview</h2>
       <div class="macro-preview">
         <div class="preview-slot">
           <div class="preview-label slot-1-label">Slot 1:</div>
@@ -120,13 +122,6 @@
           <div class="preview-label slot-4-label">Slot 4:</div>
           <div class="preview-content" id="preview-m124">(Empty)</div>
         </div>
-      </div>
-      <div class="action-buttons">
-        <button id="download-button" class="download-button" disabled>Download Modified JSON</button>
-        <button id="upload-to-keyboard-button" class="upload-to-keyboard-button" disabled>Upload to Keyboard</button>
-      </div>
-      <div id="upload-progress" class="upload-progress" style="display: none;">
-        <span class="progress-text">Uploading macros...</span>
       </div>
     </section>
   </div>

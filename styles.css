@@ -434,6 +434,30 @@ footer a:hover {
   gap: 10px;
   margin-bottom: 15px;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.file-upload-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+  padding-left: 15px;
+  border-left: 2px solid var(--light-gray);
+}
+
+.file-upload-inline input[type="file"] {
+  position: absolute;
+  left: -9999px;
+}
+
+.file-upload-inline #file-name {
+  font-size: 0.9rem;
+  color: #666;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .connect-button {
