@@ -952,7 +952,7 @@ async function handleConnect() {
 function populateHIDMacroSlotSelector(macroCount) {
   const configDiv = document.getElementById('hid-macro-slots-config');
   const slots = ['hid-slot1', 'hid-slot2', 'hid-slot3', 'hid-slot4'];
-  const defaultIndices = [120, 121, 122, 123]; // M121-M124 defaults
+  const defaultIndices = [121, 122, 123, 124]; // M121-M124 defaults (indices 121-124)
   
   slots.forEach((slotId, idx) => {
     const select = document.getElementById(slotId);
