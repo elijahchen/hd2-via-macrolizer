@@ -372,6 +372,211 @@ footer a:hover {
   cursor: not-allowed;
 }
 
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.upload-to-keyboard-button {
+  background-color: var(--success-color);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.upload-to-keyboard-button:hover {
+  background-color: #219a52;
+}
+
+.upload-to-keyboard-button:disabled {
+  background-color: var(--light-gray);
+  color: #888;
+  cursor: not-allowed;
+}
+
+.upload-progress {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: rgba(39, 174, 96, 0.2);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.progress-text {
+  color: var(--success-color);
+  font-weight: bold;
+}
+
+/* Device Section */
+.section-description {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.device-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.device-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.connect-button {
+  background-color: var(--success-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.connect-button:hover {
+  background-color: #219a52;
+}
+
+.connect-button:disabled {
+  background-color: var(--light-gray);
+  color: #888;
+  cursor: not-allowed;
+}
+
+.disconnect-button {
+  background-color: var(--hover-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.disconnect-button:hover {
+  background-color: #c0392b;
+}
+
+.disconnect-button:disabled {
+  background-color: var(--light-gray);
+  color: #888;
+  cursor: not-allowed;
+}
+
+.device-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: var(--light-gray);
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.status-indicator.disconnected {
+  background-color: #888;
+}
+
+.status-indicator.connected {
+  background-color: var(--success-color);
+  box-shadow: 0 0 8px var(--success-color);
+}
+
+.status-indicator.connecting {
+  background-color: #f39c12;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.device-info {
+  padding: 15px;
+  background-color: rgba(39, 174, 96, 0.1);
+  border-radius: 5px;
+  border-left: 4px solid var(--success-color);
+}
+
+.device-info div {
+  margin-bottom: 5px;
+}
+
+.device-info div:last-child {
+  margin-bottom: 0;
+}
+
+.webhid-warning {
+  padding: 15px;
+  background-color: rgba(243, 156, 18, 0.2);
+  border-radius: 5px;
+  border-left: 4px solid #f39c12;
+  color: #856404;
+}
+
+/* HID Macro Slots Config */
+.hid-macro-slots-config {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: var(--light-gray);
+  border-radius: 5px;
+}
+
+.hid-macro-slots-config h4 {
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.config-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.hid-slot-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+
+.hid-slot-row label {
+  min-width: 60px;
+  font-weight: bold;
+}
+
+.hid-slot-select {
+  flex: 1;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  max-width: 200px;
+}
+
 /* Macro Slots Dropdown */
 .macro-slots-dropdown-container {
   margin-bottom: 30px;
