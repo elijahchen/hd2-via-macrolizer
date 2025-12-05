@@ -139,13 +139,14 @@ footer a:hover {
 }
 
 .selected-stratagem {
-  height: 80px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: white;
   border-radius: 5px;
   padding: 10px;
+  flex: 1;
 }
 
 .selected-stratagem img {
@@ -160,8 +161,10 @@ footer a:hover {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 10px;
+  margin-top: auto;
+  padding-top: 10px;
   width: 100%;
+  flex-shrink: 0;
 }
 
 .clear-button:hover {
