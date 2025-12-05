@@ -13,6 +13,8 @@ let macroIndices = {
   m123: 122,
   m124: 123
 };
+// HID device state
+let isDeviceConnected = false;
 
 // Function to get local icon paths for a stratagem
 function getLocalIconPaths(stratagem) {
@@ -187,6 +189,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Set up download button
   document.getElementById('download-button').addEventListener('click', handleDownload);
+  
+  // Set up HID device buttons
+  document.getElementById('connect-button').addEventListener('click', handleConnect);
+  document.getElementById('disconnect-button').addEventListener('click', handleDisconnect);
+  document.getElementById('upload-to-keyboard-button').addEventListener('click', handleUploadToKeyboard);
+  
+  // Check WebHID support
+  checkWebHIDSupport();
   
   // Load stratagem grid
   populateStratagemGrid();
@@ -863,3 +873,156 @@ function handleDownload() {
     window.URL.revokeObjectURL(url);
   }, 0);
 }
+
+// ============================================
+// WebHID Device Handling Functions
+// ============================================
+
+// Check if WebHID is supported
+function checkWebHIDSupport() {
+  const warning = document.getElementById('webhid-warning');
+  const connectButton = document.getElementById('connect-button');
+  
+  if (!isWebHIDSupported()) {
+    warning.style.display = 'block';
+    connectButton.disabled = true;
+  }
+}
+
+// Update device status UI
+function updateDeviceStatus(status, message) {
+  const statusIndicator = document.querySelector('.status-indicator');
+  const statusText = document.querySelector('.status-text');
+  const deviceInfo = document.getElementById('device-info');
+  const connectButton = document.getElementById('connect-button');
+  const disconnectButton = document.getElementById('disconnect-button');
+  const uploadButton = document.getElementById('upload-to-keyboard-button');
+  
+  statusIndicator.className = 'status-indicator ' + status;
+  statusText.textContent = message;
+  
+  if (status === 'connected') {
+    isDeviceConnected = true;
+    deviceInfo.style.display = 'block';
+    connectButton.disabled = true;
+    disconnectButton.disabled = false;
+    uploadButton.disabled = !hasSelectedStratagems();
+  } else {
+    isDeviceConnected = false;
+    deviceInfo.style.display = 'none';
+    connectButton.disabled = false;
+    disconnectButton.disabled = true;
+    uploadButton.disabled = true;
+  }
+}
+
+// Check if any stratagems are selected
+function hasSelectedStratagems() {
+  return Object.values(selectedStratagems).some(s => s !== null);
+}
+
+// Handle connect button click
+async function handleConnect() {
+  updateDeviceStatus('connecting', 'Connecting...');
+  
+  try {
+    const device = await requestDevice();
+    const info = await connectDevice(device);
+    
+    document.getElementById('device-name').textContent = info.productName;
+    document.getElementById('device-vid-pid').textContent = 
+      `${info.vendorId.toString(16).padStart(4, '0').toUpperCase()}:${info.productId.toString(16).padStart(4, '0').toUpperCase()}`;
+    document.getElementById('device-protocol').textContent = `v${info.protocolVersion}`;
+    
+    updateDeviceStatus('connected', `Connected to ${info.productName}`);
+  } catch (err) {
+    console.error('Connection failed:', err);
+    updateDeviceStatus('disconnected', `Connection failed: ${err.message}`);
+  }
+}
+
+// Handle disconnect button click
+async function handleDisconnect() {
+  try {
+    await disconnectDevice();
+    updateDeviceStatus('disconnected', 'Disconnected');
+  } catch (err) {
+    console.error('Disconnect failed:', err);
+    updateDeviceStatus('disconnected', 'Disconnected');
+  }
+}
+
+// Handle upload to keyboard button click
+async function handleUploadToKeyboard() {
+  if (!isDeviceConnected) {
+    alert('Please connect to a keyboard first.');
+    return;
+  }
+  
+  if (!hasSelectedStratagems()) {
+    alert('Please select at least one stratagem.');
+    return;
+  }
+  
+  const uploadProgress = document.getElementById('upload-progress');
+  const progressText = uploadProgress.querySelector('.progress-text');
+  const uploadButton = document.getElementById('upload-to-keyboard-button');
+  
+  // Show progress
+  uploadProgress.style.display = 'block';
+  uploadButton.disabled = true;
+  progressText.textContent = 'Uploading macros to keyboard...';
+  
+  try {
+    // Build macro map: macro index -> macro string
+    const macroMap = {};
+    
+    if (selectedStratagems.m121) {
+      macroMap[macroIndices.m121] = selectedStratagems.m121.macroString;
+    }
+    if (selectedStratagems.m122) {
+      macroMap[macroIndices.m122] = selectedStratagems.m122.macroString;
+    }
+    if (selectedStratagems.m123) {
+      macroMap[macroIndices.m123] = selectedStratagems.m123.macroString;
+    }
+    if (selectedStratagems.m124) {
+      macroMap[macroIndices.m124] = selectedStratagems.m124.macroString;
+    }
+    
+    console.log('Uploading macros:', macroMap);
+    
+    // Upload to keyboard
+    const result = await uploadMacros(macroMap);
+    
+    progressText.textContent = `Success! Uploaded ${result.bytesWritten} bytes to ${result.macroCount} macro slots.`;
+    progressText.style.color = 'var(--success-color)';
+    
+    setTimeout(() => {
+      uploadProgress.style.display = 'none';
+      uploadButton.disabled = false;
+    }, 3000);
+    
+  } catch (err) {
+    console.error('Upload failed:', err);
+    progressText.textContent = `Upload failed: ${err.message}`;
+    progressText.style.color = 'var(--hover-color)';
+    uploadButton.disabled = false;
+    
+    setTimeout(() => {
+      uploadProgress.style.display = 'none';
+    }, 5000);
+  }
+}
+
+// Override updatePreview to also update upload button state
+const originalUpdatePreview = updatePreview;
+updatePreview = function() {
+  originalUpdatePreview();
+  
+  // Update upload button state based on device connection and stratagem selection
+  const uploadButton = document.getElementById('upload-to-keyboard-button');
+  if (uploadButton && isDeviceConnected) {
+    uploadButton.disabled = !hasSelectedStratagems();
+  }
+};

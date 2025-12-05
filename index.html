@@ -14,13 +14,35 @@
     </header>
 
     <section class="upload-section">
-      <h2>Step 1: Upload VIA JSON File</h2>
+      <h2>Step 1: Upload VIA JSON File (Optional)</h2>
+      <p class="section-description">Upload a VIA JSON to modify and download, or skip to connect directly to your keyboard.</p>
       <div class="file-upload">
         <input type="file" id="jsonFileInput" accept=".json">
         <label for="jsonFileInput" class="upload-button">Choose File</label>
         <span id="file-name">No file chosen</span>
       </div>
       <div id="upload-status"></div>
+    </section>
+
+    <section class="device-section">
+      <h2>Or: Connect to Keyboard Directly</h2>
+      <p class="section-description">Connect via WebHID to upload macros directly to your VIA-compatible keyboard.</p>
+      <div class="device-controls">
+        <button id="connect-button" class="connect-button">Connect to Keyboard</button>
+        <button id="disconnect-button" class="disconnect-button" disabled>Disconnect</button>
+      </div>
+      <div id="device-status" class="device-status">
+        <span class="status-indicator disconnected"></span>
+        <span class="status-text">No keyboard connected</span>
+      </div>
+      <div id="device-info" class="device-info" style="display: none;">
+        <div><strong>Device:</strong> <span id="device-name"></span></div>
+        <div><strong>VID:PID:</strong> <span id="device-vid-pid"></span></div>
+        <div><strong>Protocol:</strong> <span id="device-protocol"></span></div>
+      </div>
+      <div id="webhid-warning" class="webhid-warning" style="display: none;">
+        ⚠️ WebHID is not supported in this browser. Please use Chrome, Edge, or Opera.
+      </div>
     </section>
 
     <section class="stratagem-section">
@@ -78,7 +100,13 @@
           <div class="preview-content" id="preview-m124">(Empty)</div>
         </div>
       </div>
-      <button id="download-button" class="download-button" disabled>Update and Download VIA JSON</button>
+      <div class="action-buttons">
+        <button id="download-button" class="download-button" disabled>Download Modified JSON</button>
+        <button id="upload-to-keyboard-button" class="upload-to-keyboard-button" disabled>Upload to Keyboard</button>
+      </div>
+      <div id="upload-progress" class="upload-progress" style="display: none;">
+        <span class="progress-text">Uploading macros...</span>
+      </div>
     </section>
   </div>
 
@@ -87,6 +115,8 @@
   </footer>
 
   <script src="data.js"></script>
+  <script src="keycodes.js"></script>
+  <script src="hid.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
