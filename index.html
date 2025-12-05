@@ -21,8 +21,9 @@
         <button id="disconnect-button" class="disconnect-button" disabled>Disconnect</button>
         <div class="file-upload-inline">
           <input type="file" id="jsonFileInput" accept=".json">
-          <label for="jsonFileInput" class="upload-button">Load JSON File</label>
+          <label for="jsonFileInput" class="load-json-button">Load JSON File</label>
           <span id="file-name">No file chosen</span>
+          <button id="download-button" class="download-json-button" disabled>Download JSON</button>
         </div>
       </div>
       <div id="upload-status"></div>
@@ -61,7 +62,6 @@
       </div>
       <div class="action-buttons">
         <button id="upload-to-keyboard-button" class="upload-to-keyboard-button" disabled>Upload to Keyboard</button>
-        <button id="download-button" class="download-button" disabled>Download JSON</button>
       </div>
       <div id="upload-progress" class="upload-progress" style="display: none;">
         <span class="progress-text">Uploading macros...</span>
@@ -74,27 +74,26 @@
         <div class="macro-slot" id="slot1">
           <div class="slot-label">Slot 1</div>
           <div class="selected-stratagem" id="selected-m121">(Empty)</div>
+          <button id="clear-m121" class="clear-button">Clear</button>
         </div>
         <div class="macro-slot" id="slot2">
           <div class="slot-label">Slot 2</div>
           <div class="selected-stratagem" id="selected-m122">(Empty)</div>
+          <button id="clear-m122" class="clear-button">Clear</button>
         </div>
         <div class="macro-slot" id="slot3">
           <div class="slot-label">Slot 3</div>
           <div class="selected-stratagem" id="selected-m123">(Empty)</div>
+          <button id="clear-m123" class="clear-button">Clear</button>
         </div>
         <div class="macro-slot" id="slot4">
           <div class="slot-label">Slot 4</div>
           <div class="selected-stratagem" id="selected-m124">(Empty)</div>
+          <button id="clear-m124" class="clear-button">Clear</button>
         </div>
-      </div>
-      
-      <div class="clear-slot-buttons">
-        <button id="clear-m121" class="clear-button">Clear Slot 1</button>
-        <button id="clear-m122" class="clear-button">Clear Slot 2</button>
-        <button id="clear-m123" class="clear-button">Clear Slot 3</button>
-        <button id="clear-m124" class="clear-button">Clear Slot 4</button>
-        <button id="clear-all" class="clear-all-button">Clear All</button>
+        <div class="macro-slot clear-all-slot">
+          <button id="clear-all" class="clear-all-button">Clear All</button>
+        </div>
       </div>
       
       <h3>Available Stratagems</h3>

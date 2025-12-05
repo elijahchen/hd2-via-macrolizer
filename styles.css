@@ -117,17 +117,20 @@ footer a:hover {
   justify-content: space-between;
   margin-bottom: 30px;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .macro-slot {
   flex: 1;
-  min-width: 150px;
-  margin: 10px;
+  min-width: 140px;
+  max-width: 200px;
   padding: 15px;
   background-color: var(--light-gray);
   border-radius: 5px;
   text-align: center;
   transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 
 .slot-label {
@@ -150,13 +153,6 @@ footer a:hover {
   max-height: 100%;
 }
 
-.clear-slot-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-}
-
 .clear-button {
   background-color: var(--light-gray);
   border: none;
@@ -164,7 +160,8 @@ footer a:hover {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin: 5px;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .clear-button:hover {
@@ -172,16 +169,24 @@ footer a:hover {
   color: white;
 }
 
+.clear-all-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
 .clear-all-button {
   background-color: var(--secondary-color);
   color: white;
   border: none;
-  padding: 8px 15px;
+  padding: 12px 20px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin: 5px;
   font-weight: bold;
+  width: 100%;
+  height: 100%;
 }
 
 .clear-all-button:hover {
@@ -444,6 +449,7 @@ footer a:hover {
   margin-left: 10px;
   padding-left: 15px;
   border-left: 2px solid var(--light-gray);
+  flex: 1;
 }
 
 .file-upload-inline input[type="file"] {
@@ -458,6 +464,44 @@ footer a:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  flex: 1;
+}
+
+.load-json-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.load-json-button:hover {
+  background-color: var(--hover-color);
+}
+
+.download-json-button {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  margin-left: auto;
+}
+
+.download-json-button:hover {
+  background-color: #1a252f;
+}
+
+.download-json-button:disabled {
+  background-color: var(--light-gray);
+  color: #888;
+  cursor: not-allowed;
 }
 
 .connect-button {
@@ -563,6 +607,7 @@ footer a:hover {
 /* HID Macro Slots Config */
 .hid-macro-slots-config {
   margin-top: 15px;
+  margin-bottom: 20px;
   padding: 15px;
   background-color: var(--light-gray);
   border-radius: 5px;
