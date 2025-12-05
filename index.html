@@ -39,6 +39,27 @@
         <div><strong>Device:</strong> <span id="device-name"></span></div>
         <div><strong>VID:PID:</strong> <span id="device-vid-pid"></span></div>
         <div><strong>Protocol:</strong> <span id="device-protocol"></span></div>
+        <div><strong>Macro Slots:</strong> <span id="device-macro-count"></span></div>
+      </div>
+      <div id="hid-macro-slots-config" class="hid-macro-slots-config" style="display: none;">
+        <h4>Configure Macro Slot Indices</h4>
+        <p class="config-description">Select which macro slots to write stratagems to:</p>
+        <div class="hid-slot-row">
+          <label for="hid-slot1">Slot 1:</label>
+          <select id="hid-slot1" class="hid-slot-select"></select>
+        </div>
+        <div class="hid-slot-row">
+          <label for="hid-slot2">Slot 2:</label>
+          <select id="hid-slot2" class="hid-slot-select"></select>
+        </div>
+        <div class="hid-slot-row">
+          <label for="hid-slot3">Slot 3:</label>
+          <select id="hid-slot3" class="hid-slot-select"></select>
+        </div>
+        <div class="hid-slot-row">
+          <label for="hid-slot4">Slot 4:</label>
+          <select id="hid-slot4" class="hid-slot-select"></select>
+        </div>
       </div>
       <div id="webhid-warning" class="webhid-warning" style="display: none;">
         ⚠️ WebHID is not supported in this browser. Please use Chrome, Edge, or Opera.

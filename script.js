@@ -934,6 +934,13 @@ async function handleConnect() {
       `${info.vendorId.toString(16).padStart(4, '0').toUpperCase()}:${info.productId.toString(16).padStart(4, '0').toUpperCase()}`;
     document.getElementById('device-protocol').textContent = `v${info.protocolVersion}`;
     
+    // Get macro count and populate slot selector
+    const macroCount = await getMacroCount();
+    document.getElementById('device-macro-count').textContent = macroCount;
+    
+    // Populate the HID macro slot selector
+    populateHIDMacroSlotSelector(macroCount);
+    
     updateDeviceStatus('connected', `Connected to ${info.productName}`);
   } catch (err) {
     console.error('Connection failed:', err);
@@ -941,11 +948,66 @@ async function handleConnect() {
   }
 }
 
+// Populate HID macro slot selector dropdowns
+function populateHIDMacroSlotSelector(macroCount) {
+  const configDiv = document.getElementById('hid-macro-slots-config');
+  const slots = ['hid-slot1', 'hid-slot2', 'hid-slot3', 'hid-slot4'];
+  const defaultIndices = [120, 121, 122, 123]; // M121-M124 defaults
+  
+  slots.forEach((slotId, idx) => {
+    const select = document.getElementById(slotId);
+    select.innerHTML = ''; // Clear existing options
+    
+    // Add options for each available macro slot
+    for (let i = 0; i < macroCount; i++) {
+      const option = document.createElement('option');
+      option.value = i;
+      option.textContent = `M${i} (index ${i})`;
+      select.appendChild(option);
+    }
+    
+    // Set default value - use M121-M124 if available, otherwise use first 4 slots
+    const defaultIndex = defaultIndices[idx];
+    if (defaultIndex < macroCount) {
+      select.value = defaultIndex;
+      macroIndices[`m12${idx + 1}`] = defaultIndex;
+    } else {
+      select.value = idx;
+      macroIndices[`m12${idx + 1}`] = idx;
+    }
+    
+    // Update macroIndices when selection changes
+    select.addEventListener('change', function() {
+      const slotKey = `m12${idx + 1}`;
+      macroIndices[slotKey] = parseInt(this.value);
+      console.log(`Updated ${slotKey} to index ${this.value}`);
+      
+      // Also update the slot labels in the UI
+      const slotLabel = document.querySelector(`#slot${idx + 1} .slot-label`);
+      if (slotLabel) {
+        slotLabel.textContent = `M${this.value}`;
+      }
+    });
+    
+    // Initialize slot labels
+    const slotLabel = document.querySelector(`#slot${idx + 1} .slot-label`);
+    if (slotLabel) {
+      slotLabel.textContent = `M${select.value}`;
+    }
+  });
+  
+  // Show the config section
+  configDiv.style.display = 'block';
+}
+
 // Handle disconnect button click
 async function handleDisconnect() {
   try {
     await disconnectDevice();
     updateDeviceStatus('disconnected', 'Disconnected');
+    
+    // Hide the HID macro slots config
+    document.getElementById('hid-macro-slots-config').style.display = 'none';
   } catch (err) {
     console.error('Disconnect failed:', err);
     updateDeviceStatus('disconnected', 'Disconnected');
