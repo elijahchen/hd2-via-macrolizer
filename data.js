@@ -295,6 +295,27 @@ const stratagemData = [
     iconUrl: getWikiIconUrl("CQC-9_Defoliation_Tool"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
   },
+  {
+    name: "CQC-20 Breaching Hammer",
+    code: "DLRLU",
+    type: "Support Weapons",
+    iconUrl: getWikiIconUrl("CQC-20_Breaching_Hammer"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}"
+  },
+  {
+    name: "GL-28 Belt-Fed Grenade Launcher",
+    code: "DLULUU",
+    type: "Support Weapons",
+    iconUrl: getWikiIconUrl("GL-28_Belt-Fed_Grenade_Launcher"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_UP}{15}{-KC_UP}{15}"
+  },
+  {
+    name: "EAT-411 Leveller",
+    code: "DDLUD",
+    type: "Support Weapons",
+    iconUrl: getWikiIconUrl("EAT-411_Leveller"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
+  },
   
   // Supply
   {

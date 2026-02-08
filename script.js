@@ -91,7 +91,7 @@ function getLocalIconPaths(stratagem) {
     wikiName = 'Hover_Pack';
   } else if (stratagem.name === 'Hive Breaker Drill') {
     wikiName = 'Prospecting_Drill';
-  } else if (stratagem.name === 'TX-14 Sterilizer') {
+} else if (stratagem.name === 'TX-41 Sterilizer') {
     wikiName = 'Sterilizer';
   } else if (stratagem.name === 'FX-12 Shield Generator Relay') {
     wikiName = 'Shield_Generator_Relay';
