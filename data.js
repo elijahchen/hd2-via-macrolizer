@@ -432,6 +432,13 @@ const stratagemData = [
     iconUrl: getWikiIconUrl("AX_FLAM-75_Guard_Dog_Hot_Dog"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
   },
+  {
+    name: "B/MD C4 Pack",
+    code: "DRUURU",
+    type: "Backpack",
+    iconUrl: getWikiIconUrl("B_MD_C4_Pack"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}"
+  },
   
   // Defense
   {

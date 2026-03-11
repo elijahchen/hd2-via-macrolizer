@@ -45,6 +45,33 @@ This application enables users to:
    - Load your updated JSON file
    - Test your macros!
 
+## Linux Setup (WebHID)
+
+If you're using the WebHID "Connect to Keyboard" feature on Linux, you'll need to create a udev rule to grant your user permission to access the HID device. Without this, the browser can see the device but will fail to open it.
+
+1. Find your keyboard's vendor and product ID:
+   ```bash
+   lsusb
+   ```
+   Look for your keyboard in the output (e.g., `ID f35b:fab6 customMK EVO70 R2`).
+
+2. Create a udev rule (replace `XXXX` with your vendor ID and `YYYY` with your product ID):
+   ```bash
+   sudo tee /etc/udev/rules.d/99-via-keyboards.rules << 'EOF'
+   KERNEL=="hidraw*", ATTRS{idVendor}=="XXXX", ATTRS{idProduct}=="YYYY", MODE="0660", GROUP="input"
+   SUBSYSTEM=="usb", ATTR{idVendor}=="XXXX", ATTR{idProduct}=="YYYY", MODE="0660", GROUP="input"
+   EOF
+   ```
+
+3. Reload rules and replug the keyboard:
+   ```bash
+   sudo udevadm control --reload-rules && sudo udevadm trigger
+   ```
+   Then unplug and replug your keyboard.
+
+> Note: Make sure your user is in the `input` group (`groups` to check, `sudo usermod -aG input $USER` to add).
+> WebHID requires Chrome, Chromium, or Edge. Firefox does not support WebHID.
+
 ## Technical Details
 
 - The application generates VIA macro strings that follow this pattern:

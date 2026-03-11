@@ -107,6 +107,8 @@ function getLocalIconPaths(stratagem) {
     wikiName = 'Incendiary_Mines';
   } else if (stratagem.name === 'ARC-3 Arc Thrower') {
     wikiName = 'Arc_Thrower';
+  } else if (stratagem.name === 'B/MD C4 Pack') {
+    wikiName = 'C4_Pack';
   } else if (stratagem.name === 'AC-8 Autocannon') {
     wikiName = 'Autocannon';
   } else if (stratagem.name === 'Illumination Flare') {
@@ -138,12 +140,19 @@ function getLocalIconPaths(stratagem) {
   // 2. Try with replaced hyphen
   const noHyphenSlug = stratagem.name.replace(/\-/g, '_').replace(/\s+/g, '_') + '_Stratagem_Icon';
   
-  // Special case for Upload Data which uses SVG format
+  // Special case for stratagems that use SVG format
   if (stratagem.name === 'Upload Data') {
     return [
       `icons/stratagems/Upload_Data_Stratagem_Icon.svg`,
       `icons/stratagems/${snakeSlug}.png`,
       `icons/stratagems/${directFileName}_Icon.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
+  if (stratagem.name === 'B/MD C4 Pack') {
+    return [
+      `icons/stratagems/C4_Pack_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
       `icons/stratagems/${wikiSlug}.png`
     ];
   }
@@ -200,6 +209,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Load stratagem grid
   populateStratagemGrid();
+  
+  // Initialize sticky bar
+  initStickyBar();
   
   // Add utility keypress to show icon paths for debugging
   document.addEventListener('keydown', function(event) {
@@ -1077,7 +1089,7 @@ async function handleUploadToKeyboard() {
   }
 }
 
-// Override updatePreview to also update upload button state
+// Override updatePreview to also update upload button state and sticky bar
 const originalUpdatePreview = updatePreview;
 updatePreview = function() {
   originalUpdatePreview();
@@ -1087,4 +1099,65 @@ updatePreview = function() {
   if (uploadButton && isDeviceConnected) {
     uploadButton.disabled = !hasSelectedStratagems();
   }
+  
+  // Update sticky bar
+  updateStickyBar();
 };
+
+// Sticky bar: update mini slot icons
+function updateStickyBar() {
+  const slots = ['m121', 'm122', 'm123', 'm124'];
+  slots.forEach(slot => {
+    const stickySlot = document.getElementById(`sticky-slot-${slot}`);
+    const iconContainer = stickySlot.querySelector('.sticky-slot-icon');
+    const stratagem = selectedStratagems[slot];
+    
+    if (stratagem) {
+      stickySlot.classList.add('filled');
+      iconContainer.innerHTML = '';
+      
+      const iconPaths = getLocalIconPaths(stratagem);
+      const img = document.createElement('img');
+      img.src = iconPaths[0];
+      img.alt = stratagem.name;
+      img.title = `${stratagem.name} (${stratagem.code})`;
+      
+      function tryNext(index) {
+        if (index < iconPaths.length) {
+          img.src = iconPaths[index];
+          img.onerror = function() { tryNext(index + 1); };
+        } else if (stratagem.iconUrl) {
+          img.src = stratagem.iconUrl;
+          img.onerror = function() { this.style.display = 'none'; };
+        }
+      }
+      img.onerror = function() { tryNext(1); };
+      
+      iconContainer.appendChild(img);
+    } else {
+      stickySlot.classList.remove('filled');
+      iconContainer.innerHTML = '<span class="sticky-empty"></span>';
+    }
+  });
+  
+  // Update sticky upload button state
+  const stickyUpload = document.getElementById('sticky-upload-btn');
+  if (stickyUpload) {
+    stickyUpload.disabled = !isDeviceConnected || !hasSelectedStratagems();
+  }
+}
+
+// Sticky bar initialization
+function initStickyBar() {
+  // Wire up clear buttons
+  document.querySelectorAll('.sticky-clear-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const slot = btn.closest('.sticky-slot').dataset.slot;
+      clearSlot(slot);
+    });
+  });
+  
+  // Wire up sticky upload button
+  document.getElementById('sticky-upload-btn').addEventListener('click', handleUploadToKeyboard);
+}

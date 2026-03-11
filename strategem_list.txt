@@ -48,8 +48,9 @@ SH-32 Shield Generator Pack  Down, Up, Left, Right, Left, Right
 SH-51 Directional Shield Backpack  Down, Up, Left, Right, Up, Up
 LIFT-860 Hover Pack  Down, Up, Up, Down, Left, Right
 B-100 Portable Hellbomb  Down, Right, Up, Up, Up
+B/MD C4 Pack  Down, Right, Up, Up, Right, Up
 
-Sentry & Defense Stratagems
+Sentry
 A/MG-43 Machine Sentry	Down, Up, Right, Right, Up
 E/FLAM-40 Flame Sentry Down, Up, Right, Down, Up, Up
 A/G-16 Gatling Sentry	Down, Up, Right, Left
