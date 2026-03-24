@@ -53,6 +53,8 @@ function getLocalIconPaths(stratagem) {
       wikiName = 'Machine_Gun_Sentry';
     } else if (stratagem.name.includes('MLS-4X')) {
       wikiName = 'Rocket_Sentry';
+    } else if (stratagem.name.includes('GM-17')) {
+      wikiName = 'Gas_Mortar_Sentry';
     }
   } else if (stratagem.name.startsWith('E/')) {
     // Handle emplacement naming
@@ -109,6 +111,8 @@ function getLocalIconPaths(stratagem) {
     wikiName = 'Arc_Thrower';
   } else if (stratagem.name === 'B/MD C4 Pack') {
     wikiName = 'C4_Pack';
+  } else if (stratagem.name === 'B/FLAM-80 Cremator') {
+    wikiName = 'Cremator';
   } else if (stratagem.name === 'AC-8 Autocannon') {
     wikiName = 'Autocannon';
   } else if (stratagem.name === 'Illumination Flare') {
@@ -152,6 +156,20 @@ function getLocalIconPaths(stratagem) {
   if (stratagem.name === 'B/MD C4 Pack') {
     return [
       `icons/stratagems/C4_Pack_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
+  if (stratagem.name === 'A/GM-17 Gas Mortar Sentry') {
+    return [
+      `icons/stratagems/Gas_Mortar_Sentry_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
+  if (stratagem.name === 'B/FLAM-80 Cremator') {
+    return [
+      `icons/stratagems/Cremator_Stratagem_Icon.svg`,
       `icons/stratagems/${snakeSlug}.png`,
       `icons/stratagems/${wikiSlug}.png`
     ];

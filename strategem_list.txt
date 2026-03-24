@@ -49,6 +49,7 @@ SH-51 Directional Shield Backpack  Down, Up, Left, Right, Up, Up
 LIFT-860 Hover Pack  Down, Up, Up, Down, Left, Right
 B-100 Portable Hellbomb  Down, Right, Up, Up, Up
 B/MD C4 Pack  Down, Right, Up, Up, Right, Up
+B/FLAM-80 Cremator  Down, Down, Right, Down, Up, Up
 
 Sentry
 A/MG-43 Machine Sentry	Down, Up, Right, Right, Up
@@ -63,6 +64,7 @@ A/ARC-3 Tesla Tower	Down, Up, Right, Up, Left, Right
 E/GL-21 Grenadier Battlement Down, Down, Left, Right, Left, Right
 E/AT-12 Anti-Tank Emplacement Left, Left, Up, Up, Right, Left
 FX-12 Shield Generator Relay	Down, Down, Left, Right, Left, Right
+A/GM-17 Gas Mortar Sentry	Down, Up, Right, Down, Left
 
 Mines
 MD-6 Anti-Personnel Minefield	Down, Left, Up, Right

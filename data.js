@@ -439,6 +439,13 @@ const stratagemData = [
     iconUrl: getWikiIconUrl("B_MD_C4_Pack"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}"
   },
+  {
+    name: "B/FLAM-80 Cremator",
+    code: "DDRDUU",
+    type: "Support Weapons",
+    iconUrl: getWikiIconUrl("B_FLAM-80_Cremator"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_UP}{15}{-KC_UP}{15}"
+  },
   
   // Defense
   {
@@ -531,6 +538,13 @@ const stratagemData = [
     type: "Defense",
     iconUrl: getWikiIconUrl("FX-12_Shield_Generator_Relay"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
+  },
+  {
+    name: "A/GM-17 Gas Mortar Sentry",
+    code: "DURDL",
+    type: "Defense",
+    iconUrl: getWikiIconUrl("A_GM-17_Gas_Mortar_Sentry"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
   },
   
   // Mines
