@@ -53,7 +53,7 @@ const stratagemData = [
     code: "DULDURDU",
     type: "General",
     iconUrl: getWikiIconUrl("NUX-223_Hellbomb"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}"
   },
   {
     name: "SEAF Artillery",
@@ -338,6 +338,20 @@ const stratagemData = [
     type: "Supply",
     iconUrl: getWikiIconUrl("EXO-45_Patriot_Exosuit"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
+  },
+  {
+    name: "EXO-51 Lumberer Exosuit",
+    code: "LDRURLU",
+    type: "Supply",
+    iconUrl: getWikiIconUrl("EXO-51_Lumberer_Exosuit"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}"
+  },
+  {
+    name: "EXO-55 Breakthrough Exosuit",
+    code: "LDRULDU",
+    type: "Supply",
+    iconUrl: getWikiIconUrl("EXO-55_Breakthrough_Exosuit"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}"
   },
   
   // Backpack Stratagems

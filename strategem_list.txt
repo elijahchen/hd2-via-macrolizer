@@ -36,6 +36,8 @@ Supply
 M-102 Fast Recon Vehicle  Left, Down, Right, Down, Right, Down, Up
 EXO-49 Emancipator Exosuit  Left, Down, Right, Up, Left, Down, Up
 EXO-45 Patriot Exosuit	Left, Down, Right, Up, Left, Down, Down
+EXO-51 Lumberer Exosuit  Left, Down, Right, Up, Right, Left, Up
+EXO-55 Breakthrough Exosuit  Left, Down, Right, Up, Left, Down, Up
 
 Backpack Stratagems
 LIFT-850 Jump Pack	Down, Up, Up, Down, Up
