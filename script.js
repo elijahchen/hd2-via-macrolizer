@@ -174,6 +174,34 @@ function getLocalIconPaths(stratagem) {
       `icons/stratagems/${wikiSlug}.png`
     ];
   }
+  if (stratagem.name === 'EXO-51 Lumberer Exosuit') {
+    return [
+      `icons/stratagems/Lumberer_Exosuit_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
+  if (stratagem.name === 'EXO-55 Breakthrough Exosuit') {
+    return [
+      `icons/stratagems/Breakthrough_Exosuit_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
+  if (stratagem.name === 'MGX-42 Bullet Storm') {
+    return [
+      `icons/stratagems/Bullet_Storm_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
+  if (stratagem.name === 'TD-220 Bastion MK XVI') {
+    return [
+      `icons/stratagems/Bastion_MK_XVI_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
   
   // Return all formats to try in order of likelihood
   return [
