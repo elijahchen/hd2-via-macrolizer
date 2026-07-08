@@ -35,6 +35,7 @@ MGX-42 Bullet Storm  Down, Left, Down, Right, Up, Left
 
 Supply
 M-102 Fast Recon Vehicle  Left, Down, Right, Down, Right, Down, Up
+M-103 Supply FRV  Left, Down, Left, Left, Down, Up, Right
 EXO-49 Emancipator Exosuit  Left, Down, Right, Up, Left, Down, Up
 EXO-45 Patriot Exosuit	Left, Down, Right, Up, Left, Down, Down
 EXO-51 Lumberer Exosuit  Left, Down, Right, Up, Right, Left, Up

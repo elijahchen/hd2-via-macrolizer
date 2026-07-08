@@ -202,6 +202,13 @@ function getLocalIconPaths(stratagem) {
       `icons/stratagems/${wikiSlug}.png`
     ];
   }
+  if (stratagem.name === 'M-103 Supply FRV') {
+    return [
+      `icons/stratagems/Supply_FRV_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
   
   // Return all formats to try in order of likelihood
   return [
