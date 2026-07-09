@@ -53,7 +53,7 @@ const stratagemData = [
     code: "DULDURDU",
     type: "General",
     iconUrl: getWikiIconUrl("NUX-223_Hellbomb"),
-    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}"
   },
   {
     name: "SEAF Artillery",
@@ -316,6 +316,13 @@ const stratagemData = [
     iconUrl: getWikiIconUrl("EAT-411_Leveller"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
   },
+  {
+    name: "MGX-42 Bullet Storm",
+    code: "DLDRUL",
+    type: "Support Weapons",
+    iconUrl: getWikiIconUrl("MGX-42_Bullet_Storm"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
+  },
   
   // Supply
   {
@@ -324,6 +331,13 @@ const stratagemData = [
     type: "Supply",
     iconUrl: getWikiIconUrl("M-102_Fast_Recon_Vehicle"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}"
+  },
+  {
+    name: "M-103 Supply FRV",
+    code: "LDLLDUR",
+    type: "Supply",
+    iconUrl: getWikiIconUrl("Supply_FRV"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
   },
   {
     name: "EXO-49 Emancipator Exosuit",
@@ -338,6 +352,27 @@ const stratagemData = [
     type: "Supply",
     iconUrl: getWikiIconUrl("EXO-45_Patriot_Exosuit"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
+  },
+  {
+    name: "EXO-51 Lumberer Exosuit",
+    code: "LDRURLU",
+    type: "Supply",
+    iconUrl: getWikiIconUrl("EXO-51_Lumberer_Exosuit"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}"
+  },
+  {
+    name: "EXO-55 Breakthrough Exosuit",
+    code: "LDRLRDU",
+    type: "Supply",
+    iconUrl: getWikiIconUrl("EXO-55_Breakthrough_Exosuit"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}"
+  },
+  {
+    name: "TD-220 Bastion MK XVI",
+    code: "LDRDLDUDU",
+    type: "Supply",
+    iconUrl: getWikiIconUrl("TD-220_Bastion_MK_XVI"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}"
   },
   
   // Backpack Stratagems
