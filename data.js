@@ -374,6 +374,13 @@ const stratagemData = [
     iconUrl: getWikiIconUrl("TD-220_Bastion_MK_XVI"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}"
   },
+  {
+    name: "TD-110 Maelstrom",
+    code: "LDRDLDULR",
+    type: "Supply",
+    iconUrl: getWikiIconUrl("TD-110_Maelstrom"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
+  },
   
   // Backpack Stratagems
   {
@@ -480,6 +487,13 @@ const stratagemData = [
     type: "Support Weapons",
     iconUrl: getWikiIconUrl("B_FLAM-80_Cremator"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_UP}{15}{-KC_UP}{15}"
+  },
+  {
+    name: "40-K Meltagun",
+    code: "DLULLD",
+    type: "Support Weapons",
+    iconUrl: getWikiIconUrl("40-K_Meltagun"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
   },
   
   // Defense
@@ -733,6 +747,13 @@ const stratagemData = [
     type: "Eagle",
     iconUrl: getWikiIconUrl("Eagle_Smoke_Strike"),
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
+  },
+  {
+    name: "Eagle Gas Airstrike",
+    code: "URLR",
+    type: "Eagle",
+    iconUrl: getWikiIconUrl("Eagle_Gas_Airstrike"),
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
   },
   {
     name: "Eagle 110mm Rockets",

@@ -32,6 +32,7 @@ MLS-4X Commando  Down, Left, Down, Up, Up, Right, Left
 RL-77 Airburst Rocket Launcher  Down, Down, Up, Right, Down
 StA-X3_W.A.S.P. Launcher  Down, Down, Up, Left, Up
 MGX-42 Bullet Storm  Down, Left, Down, Right, Up, Left
+40-K Meltagun  Down, Left, Up, Left, Left, Down
 
 Supply
 M-102 Fast Recon Vehicle  Left, Down, Right, Down, Right, Down, Up
@@ -41,6 +42,8 @@ EXO-45 Patriot Exosuit	Left, Down, Right, Up, Left, Down, Down
 EXO-51 Lumberer Exosuit  Left, Down, Right, Up, Right, Left, Up
 EXO-55 Breakthrough Exosuit  Left, Down, Right, Left, Right, Down, Up
 TD-220 Bastion MK XVI  Left, Down, Right, Down, Left, Down, Up, Down, Up
+TD-110 Maelstrom  Left, Down, Right, Down, Left, Down, Up, Left, Right
+Eagle Gas Airstrike  Up, Right, Left, Right
 
 Backpack Stratagems
 LIFT-850 Jump Pack	Down, Up, Up, Down, Up
@@ -99,3 +102,4 @@ Eagle Napalm Airstrike	Up, Right, Down, Up
 Eagle Smoke Strike	Up, Right, Up, Down
 Eagle 110mm Rockets	Up, Right, Up, Left
 Eagle 500kg Bomb	Up, Right, Down, Down, Down
+Eagle Gas Airstrike	Up, Right, Left, Right

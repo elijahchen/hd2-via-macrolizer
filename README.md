@@ -7,7 +7,7 @@ A web application that allows Helldivers 2 players to create VIA keyboard macros
 This application enables users to:
 
 1. Upload their VIA keyboard layout JSON file
-2. Select Helldivers 2 stratagems for specific macro slots (M121, M122, M123, M124)
+2. Select Helldivers 2 stratagems for specific macro slots (M121, M122, M123, M124, M125)
 3. Automatically generate the correct VIA macro strings based on stratagem input codes
 4. Download the updated VIA JSON file to use with their keyboard
 
@@ -16,7 +16,7 @@ This application enables users to:
 - **Complete Stratagem Library**: Contains all stratagems from Helldivers 2 with their respective icons and input codes
 - **Visual Selection Interface**: Select stratagems by clicking on their icons
 - **Automatic Macro Generation**: Generates VIA-compatible macro strings following the standard format
-- **Custom Slot Assignment**: Assigns stratagems to specific macro slots (M121-M124)
+- **Custom Slot Assignment**: Assigns stratagems to specific macro slots (M121-M125)
 - **Preserves Other Settings**: Only modifies the specified macro slots, leaving the rest of your keyboard configuration intact
 
 ## How to Use
@@ -31,7 +31,7 @@ This application enables users to:
 
 3. **Select Stratagems**:
    - Browse the stratagem library and click on stratagems to assign them
-   - Stratagems will fill slots M121 through M124 in order
+   - Stratagems will fill slots M121 through M125 in order
    - Use the "Clear" buttons to remove selections from specific slots
    - If slots M12x isn't avaliable, use the dropdown menu to select the preferred slot only after uploading your JSON file
    - Note: If a slot is not null, it will warn (not empty) next to the M# 
@@ -87,6 +87,7 @@ If you're using the WebHID "Connect to Keyboard" feature on Linux, you'll need t
   - M122: Index 121 in the macros array
   - M123: Index 122 in the macros array
   - M124: Index 123 in the macros array
+  - M125: Index 125 in the macros array
 
 ## Credits
 

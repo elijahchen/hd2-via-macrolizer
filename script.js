@@ -1,17 +1,29 @@
 // Global variables to store state
+// Main loadout slots that auto-register when a stratagem is clicked
+const stratagemSlots = ['m121', 'm122', 'm123', 'm124', 'm125'];
+// Support slots (M119, M120) that do NOT auto-register; only set via drag & drop
+const supportSlots = ['support1', 'support2'];
+// Every slot (used for display/preview/upload/clear/drag-drop)
+const allSlots = [...stratagemSlots, ...supportSlots];
 let uploadedJsonData = null;
 let selectedStratagems = {
   m121: null,
   m122: null,
   m123: null,
-  m124: null
+  m124: null,
+  m125: null,
+  support1: null,
+  support2: null
 };
 // Store the macro indices
 let macroIndices = {
   m121: 120,
   m122: 121,
   m123: 122,
-  m124: 123
+  m124: 123,
+  m125: 125,
+  support1: 119,
+  support2: 120
 };
 // HID device state
 let isDeviceConnected = false;
@@ -34,6 +46,10 @@ function getLocalIconPaths(stratagem) {
       wikiName = 'Guard_Dog_Rover';
     } else if (stratagem.name.includes('Breath')) {
       wikiName = 'Guard_Dog_Dog_Breath';
+    } else if (stratagem.name.includes('Hot Dog')) {
+      wikiName = 'Guard_Dog_Hot_Dog';
+    } else if (stratagem.name.includes('K-9')) {
+      wikiName = 'Guard_Dog_K-9';
     } else {
       wikiName = 'Guard_Dog';
     }
@@ -202,9 +218,44 @@ function getLocalIconPaths(stratagem) {
       `icons/stratagems/${wikiSlug}.png`
     ];
   }
+  if (stratagem.name === 'TD-110 Maelstrom') {
+    return [
+      `icons/stratagems/Maelstrom_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
+  if (stratagem.name === 'Eagle Gas Airstrike') {
+    return [
+      `icons/stratagems/Eagle_Gas_Airstrike_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
   if (stratagem.name === 'M-103 Supply FRV') {
     return [
       `icons/stratagems/Supply_FRV_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
+  if (stratagem.name === 'AX/FLAM-75 Guard Dog Hot Dog') {
+    return [
+      `icons/stratagems/Guard_Dog_Hot_Dog_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
+  if (stratagem.name === 'AX/ARC-3 Guard Dog K-9') {
+    return [
+      `icons/stratagems/Guard_Dog_K-9_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
+  if (stratagem.name === '40-K Meltagun') {
+    return [
+      `icons/stratagems/Meltagun_Stratagem_Icon.svg`,
       `icons/stratagems/${snakeSlug}.png`,
       `icons/stratagems/${wikiSlug}.png`
     ];
@@ -247,6 +298,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('clear-m122').addEventListener('click', () => clearSlot('m122'));
   document.getElementById('clear-m123').addEventListener('click', () => clearSlot('m123'));
   document.getElementById('clear-m124').addEventListener('click', () => clearSlot('m124'));
+  document.getElementById('clear-m125').addEventListener('click', () => clearSlot('m125'));
+  document.getElementById('clear-support1').addEventListener('click', () => clearSlot('support1'));
+  document.getElementById('clear-support2').addEventListener('click', () => clearSlot('support2'));
   document.getElementById('clear-all').addEventListener('click', clearAllSlots);
   
   // Set up download button
@@ -265,6 +319,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initialize sticky bar
   initStickyBar();
+  
+  // Initialize drag & drop of stratagems into slots
+  initDragAndDrop();
+  
+  // Restore the last uploaded loadout (persisted in localStorage)
+  restoreLoadout();
   
   // Add utility keypress to show icon paths for debugging
   document.addEventListener('keydown', function(event) {
@@ -391,12 +451,22 @@ function populateStratagemGrid() {
       codeEl.className = 'stratagem-code';
       codeEl.textContent = stratagem.code;
       
+      // Name + code are kept in the DOM but hidden via CSS; shown as a tooltip
+      stratagemItem.title = `${stratagem.name} (${stratagem.code})`;
+      
       stratagemItem.appendChild(iconContainer);
       stratagemItem.appendChild(nameEl);
       stratagemItem.appendChild(codeEl);
       
       // Add click event listener
       stratagemItem.addEventListener('click', () => handleStratagemSelection(stratagem));
+      
+      // Make the item draggable so it can be dropped into any slot
+      stratagemItem.setAttribute('draggable', 'true');
+      stratagemItem.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', stratagem.name);
+        e.dataTransfer.effectAllowed = 'copy';
+      });
       
       grid.appendChild(stratagemItem);
     });
@@ -467,15 +537,17 @@ function createMacroSlotsDropdown(availableSlots) {
     </div>
   `;
   
-  // Create dropdown for each of our 4 slots
-  const slots = ['m121', 'm122', 'm123', 'm124'];
+  // Create dropdown for each of our slots (5 loadout + 2 support)
+  const slots = allSlots;
   slots.forEach((slot, idx) => {
     const slotContainer = document.createElement('div');
     slotContainer.className = 'slot-dropdown-row';
     
     const label = document.createElement('label');
     label.setAttribute('for', `${slot}-select`);
-    label.textContent = `Slot ${idx+1}: `;
+    label.textContent = supportSlots.includes(slot)
+      ? `Support ${supportSlots.indexOf(slot) + 1}: `
+      : `Slot ${idx + 1}: `;
     
     const select = document.createElement('select');
     select.id = `${slot}-select`;
@@ -493,7 +565,10 @@ function createMacroSlotsDropdown(availableSlots) {
         'm121': 'M121',
         'm122': 'M122',
         'm123': 'M123',
-        'm124': 'M124'
+        'm124': 'M124',
+        'm125': 'M125',
+        'support1': 'M119',
+        'support2': 'M120'
       };
       
       // Select the options that match our conventional mapping, or use first available slots
@@ -514,30 +589,9 @@ function createMacroSlotsDropdown(availableSlots) {
       }
     }
     
-    // Add event listener to update macroIndices when selection changes
+    // Update only the macro assignment; visible labels remain Slot 1 through Slot 5.
     select.addEventListener('change', function() {
       macroIndices[slot] = parseInt(this.value);
-      
-      // Update the slot label to reflect the selected macro
-      const macroName = availableSlots.find(macro => macro.index === parseInt(this.value))?.name || '';
-      
-      // Update slot label
-      const slotLabel = document.querySelector(`#slot${idx+1} .slot-label`);
-      if (slotLabel) {
-        slotLabel.textContent = macroName;
-      }
-      
-      // Update preview label
-      const previewLabel = document.querySelector(`.slot-${idx+1}-label`);
-      if (previewLabel) {
-        previewLabel.textContent = `${macroName}:`;
-      }
-      
-      // Update clear button text
-      const clearButton = document.getElementById(`clear-${slot}`);
-      if (clearButton) {
-        clearButton.textContent = `Clear ${macroName}`;
-      }
     });
     
     slotContainer.appendChild(label);
@@ -549,32 +603,11 @@ function createMacroSlotsDropdown(availableSlots) {
   const macroSlots = document.querySelector('.macro-slots');
   macroSlots.parentNode.insertBefore(dropdownContainer, macroSlots);
   
-  // Trigger change events to update slot labels with initial selections
-  slots.forEach((slot, idx) => {
+  // Store the initial macro assignments without changing the Slot # labels.
+  slots.forEach(slot => {
     const select = document.getElementById(`${slot}-select`);
     if (select) {
       macroIndices[slot] = parseInt(select.value);
-      
-      // Update the slot label to reflect the selected macro
-      const macroName = availableSlots.find(macro => macro.index === parseInt(select.value))?.name || '';
-      
-      // Update slot label
-      const slotLabel = document.querySelector(`#slot${idx+1} .slot-label`);
-      if (slotLabel) {
-        slotLabel.textContent = macroName;
-      }
-      
-      // Update preview label
-      const previewLabel = document.querySelector(`.slot-${idx+1}-label`);
-      if (previewLabel) {
-        previewLabel.textContent = `${macroName}:`;
-      }
-      
-      // Update clear button text
-      const clearButton = document.getElementById(`clear-${slot}`);
-      if (clearButton) {
-        clearButton.textContent = `Clear ${macroName}`;
-      }
     }
   });
 }
@@ -612,7 +645,7 @@ function handleFileUpload(event) {
       createMacroSlotsDropdown(availableSlots);
       
       // Update macroIndices with the initial selected values
-      const slots = ['m121', 'm122', 'm123', 'm124'];
+      const slots = allSlots;
       slots.forEach(slot => {
         const select = document.getElementById(`${slot}-select`);
         if (select) {
@@ -654,21 +687,8 @@ function handleFileUpload(event) {
 
 // Handle stratagem selection
 function handleStratagemSelection(stratagem) {
-  // Find next empty slot or use the first slot if all are filled
-  let targetSlot = null;
-  
-  if (!selectedStratagems.m121) {
-    targetSlot = 'm121';
-  } else if (!selectedStratagems.m122) {
-    targetSlot = 'm122';
-  } else if (!selectedStratagems.m123) {
-    targetSlot = 'm123';
-  } else if (!selectedStratagems.m124) {
-    targetSlot = 'm124';
-  } else {
-    // All slots filled, replace the first one
-    targetSlot = 'm121';
-  }
+  // Fill all five slots in order, replacing Slot 1 only after all five are filled.
+  const targetSlot = stratagemSlots.find(slot => !selectedStratagems[slot]) || stratagemSlots[0];
   
   // Update selected slot
   selectedStratagems[targetSlot] = stratagem;
@@ -768,12 +788,15 @@ function resetSelections() {
     m121: null,
     m122: null,
     m123: null,
-    m124: null
+    m124: null,
+    m125: null,
+    support1: null,
+    support2: null
   };
   
   // Check if macro slots are not empty in the uploaded JSON
   if (uploadedJsonData && uploadedJsonData.macros) {
-    const slots = ['m121', 'm122', 'm123', 'm124'];
+    const slots = allSlots;
     
     slots.forEach(slot => {
       const index = macroIndices[slot];
@@ -792,10 +815,7 @@ function resetSelections() {
     });
   } else {
     // If no JSON is uploaded, or it doesn't have macros, just display as empty
-    updateSlotDisplay('m121', null);
-    updateSlotDisplay('m122', null);
-    updateSlotDisplay('m123', null);
-    updateSlotDisplay('m124', null);
+    allSlots.forEach(slot => updateSlotDisplay(slot, null));
   }
   
   updatePreview();
@@ -803,20 +823,13 @@ function resetSelections() {
 
 // Update the preview section
 function updatePreview() {
-  const previewM121 = document.getElementById('preview-m121');
-  const previewM122 = document.getElementById('preview-m122');
-  const previewM123 = document.getElementById('preview-m123');
-  const previewM124 = document.getElementById('preview-m124');
-  
   // Check if the uploaded JSON has non-empty macros
   if (uploadedJsonData && uploadedJsonData.macros) {
-    const slots = ['m121', 'm122', 'm123', 'm124'];
-    const previewElements = [previewM121, previewM122, previewM123, previewM124];
-    
-    slots.forEach((slot, index) => {
+    allSlots.forEach((slot) => {
+      const previewElement = document.getElementById(`preview-${slot}`);
+      if (!previewElement) return;
       const macroIndex = macroIndices[slot];
       const macroContent = uploadedJsonData.macros[macroIndex];
-      const previewElement = previewElements[index];
       
       if (selectedStratagems[slot]) {
         // If a stratagem is selected, show its macro string
@@ -831,10 +844,11 @@ function updatePreview() {
     });
   } else {
     // If no JSON is uploaded, or it doesn't have macros, just display as empty
-    previewM121.textContent = selectedStratagems.m121 ? selectedStratagems.m121.macroString : '(Empty)';
-    previewM122.textContent = selectedStratagems.m122 ? selectedStratagems.m122.macroString : '(Empty)';
-    previewM123.textContent = selectedStratagems.m123 ? selectedStratagems.m123.macroString : '(Empty)';
-    previewM124.textContent = selectedStratagems.m124 ? selectedStratagems.m124.macroString : '(Empty)';
+    allSlots.forEach((slot) => {
+      const previewElement = document.getElementById(`preview-${slot}`);
+      if (!previewElement) return;
+      previewElement.textContent = selectedStratagems[slot] ? selectedStratagems[slot].macroString : '(Empty)';
+    });
   }
 }
 
@@ -847,7 +861,7 @@ function handleDownload() {
   
   // Check if any selected slots contain existing content
   const slotsWithContent = [];
-  Object.keys(macroIndices).forEach(slot => {
+  allSlots.forEach(slot => {
     const index = macroIndices[slot];
     if (uploadedJsonData.macros[index] && 
         uploadedJsonData.macros[index] !== "" && 
@@ -855,9 +869,9 @@ function handleDownload() {
         selectedStratagems[slot]) { // Only warn if we're going to write to this slot
       
       // Get the display name of the macro for user-friendly messages
-      const slotIdx = ['m121', 'm122', 'm123', 'm124'].indexOf(slot);
-      const slotLabel = document.querySelector(`#slot${slotIdx+1} .slot-label`);
-      const macroName = slotLabel ? slotLabel.textContent : `Slot ${slotIdx+1}`;
+      const slotLabel = document.querySelector(`.selected-stratagem#selected-${slot}`)
+        ?.closest('.macro-slot')?.querySelector('.slot-label');
+      const macroName = slotLabel ? slotLabel.textContent : slot;
       
       slotsWithContent.push(macroName);
     }
@@ -891,22 +905,13 @@ function handleDownload() {
   
   // Update the macros array for the selected slots using the macroIndices map
   // Preserve the macro structure (object with properties) if it exists
-  if (selectedStratagems.m121) {
-    updatedJsonData.macros[macroIndices.m121] = updateMacro(macroIndices.m121, selectedStratagems.m121.macroString);
-  }
-  
-  if (selectedStratagems.m122) {
-    updatedJsonData.macros[macroIndices.m122] = updateMacro(macroIndices.m122, selectedStratagems.m122.macroString);
-  }
-  
-  if (selectedStratagems.m123) {
-    updatedJsonData.macros[macroIndices.m123] = updateMacro(macroIndices.m123, selectedStratagems.m123.macroString);
-  }
-  
-  if (selectedStratagems.m124) {
-    updatedJsonData.macros[macroIndices.m124] = updateMacro(macroIndices.m124, selectedStratagems.m124.macroString);
-  }
-  
+  allSlots.forEach(slot => {
+    if (selectedStratagems[slot]) {
+      const index = macroIndices[slot];
+      updatedJsonData.macros[index] = updateMacro(index, selectedStratagems[slot].macroString);
+    }
+  });
+
   // Convert JSON back to string
   const jsonString = JSON.stringify(updatedJsonData, null, 2);
   
@@ -1016,8 +1021,9 @@ async function handleConnect() {
 // Populate HID macro slot selector dropdowns
 function populateHIDMacroSlotSelector(macroCount) {
   const configDiv = document.getElementById('hid-macro-slots-config');
-  const slots = ['hid-slot1', 'hid-slot2', 'hid-slot3', 'hid-slot4'];
-  const defaultIndices = [121, 122, 123, 124]; // M121-M124 defaults (indices 121-124)
+  const slots = ['hid-slot1', 'hid-slot2', 'hid-slot3', 'hid-slot4', 'hid-slot5', 'hid-slotSupport1', 'hid-slotSupport2'];
+  const defaultIndices = [121, 122, 123, 124, 125, 119, 120]; // M121-M125 + M119/M120 (support) defaults
+  const slotKeys = [...stratagemSlots, ...supportSlots];
   
   slots.forEach((slotId, idx) => {
     const select = document.getElementById(slotId);
@@ -1031,34 +1037,22 @@ function populateHIDMacroSlotSelector(macroCount) {
       select.appendChild(option);
     }
     
-    // Set default value - use M121-M124 if available, otherwise use first 4 slots
+    // Set default value - use configured defaults if available, otherwise fall back to index
     const defaultIndex = defaultIndices[idx];
+    const slotKey = slotKeys[idx];
     if (defaultIndex < macroCount) {
       select.value = defaultIndex;
-      macroIndices[`m12${idx + 1}`] = defaultIndex;
+      macroIndices[slotKey] = defaultIndex;
     } else {
       select.value = idx;
-      macroIndices[`m12${idx + 1}`] = idx;
+      macroIndices[slotKey] = idx;
     }
     
-    // Update macroIndices when selection changes
+    // Update only the macro assignment; visible labels remain Slot 1 through Slot 5.
     select.addEventListener('change', function() {
-      const slotKey = `m12${idx + 1}`;
       macroIndices[slotKey] = parseInt(this.value);
       console.log(`Updated ${slotKey} to index ${this.value}`);
-      
-      // Also update the slot labels in the UI
-      const slotLabel = document.querySelector(`#slot${idx + 1} .slot-label`);
-      if (slotLabel) {
-        slotLabel.textContent = `M${this.value}`;
-      }
     });
-    
-    // Initialize slot labels
-    const slotLabel = document.querySelector(`#slot${idx + 1} .slot-label`);
-    if (slotLabel) {
-      slotLabel.textContent = `M${select.value}`;
-    }
   });
   
   // Show the config section
@@ -1104,23 +1098,19 @@ async function handleUploadToKeyboard() {
     // Build macro map: macro index -> macro string
     const macroMap = {};
     
-    if (selectedStratagems.m121) {
-      macroMap[macroIndices.m121] = selectedStratagems.m121.macroString;
-    }
-    if (selectedStratagems.m122) {
-      macroMap[macroIndices.m122] = selectedStratagems.m122.macroString;
-    }
-    if (selectedStratagems.m123) {
-      macroMap[macroIndices.m123] = selectedStratagems.m123.macroString;
-    }
-    if (selectedStratagems.m124) {
-      macroMap[macroIndices.m124] = selectedStratagems.m124.macroString;
-    }
+    allSlots.forEach(slot => {
+      if (selectedStratagems[slot]) {
+        macroMap[macroIndices[slot]] = selectedStratagems[slot].macroString;
+      }
+    });
     
     console.log('Uploading macros:', macroMap);
     
     // Upload to keyboard
     const result = await uploadMacros(macroMap);
+    
+    // Persist the loadout that was just uploaded so it can be restored later
+    saveLoadout();
     
     progressText.textContent = `Success! Uploaded ${result.bytesWritten} bytes to ${result.macroCount} macro slots.`;
     progressText.style.color = 'var(--success-color)';
@@ -1159,7 +1149,7 @@ updatePreview = function() {
 
 // Sticky bar: update mini slot icons
 function updateStickyBar() {
-  const slots = ['m121', 'm122', 'm123', 'm124'];
+  const slots = allSlots;
   slots.forEach(slot => {
     const stickySlot = document.getElementById(`sticky-slot-${slot}`);
     const iconContainer = stickySlot.querySelector('.sticky-slot-icon');
@@ -1213,4 +1203,83 @@ function initStickyBar() {
   
   // Wire up sticky upload button
   document.getElementById('sticky-upload-btn').addEventListener('click', handleUploadToKeyboard);
+}
+
+// Assign a stratagem to a specific slot, replacing whatever is there
+function assignStratagemToSlot(slot, stratagem) {
+  if (!slot || !stratagem) return;
+  selectedStratagems[slot] = stratagem;
+  updateSlotDisplay(slot, stratagem);
+  updatePreview();
+}
+
+// Drag & drop: allow dragging a stratagem from the grid onto any slot
+// (Slots 1-5 and Support 1/2). Dropping replaces the current contents.
+function initDragAndDrop() {
+  // Drop targets: the macro slot cards and the sticky bar mini-slots
+  const dropTargets = [
+    ...document.querySelectorAll('.macro-slot[data-slot]'),
+    ...document.querySelectorAll('.sticky-slot[data-slot]')
+  ];
+  
+  dropTargets.forEach(target => {
+    const slot = target.dataset.slot;
+    
+    target.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'copy';
+      target.classList.add('drag-over');
+    });
+    
+    target.addEventListener('dragleave', () => {
+      target.classList.remove('drag-over');
+    });
+    
+    target.addEventListener('drop', (e) => {
+      e.preventDefault();
+      target.classList.remove('drag-over');
+      const name = e.dataTransfer.getData('text/plain');
+      const stratagem = stratagemData.find(s => s.name === name);
+      assignStratagemToSlot(slot, stratagem);
+    });
+  });
+}
+
+// ============================================
+// Loadout Persistence (localStorage)
+// ============================================
+const LOADOUT_STORAGE_KEY = 'hd2-macrolizer-last-loadout';
+
+// Save the current loadout (last uploaded) to localStorage
+function saveLoadout() {
+  try {
+    const loadout = {};
+    allSlots.forEach(slot => {
+      loadout[slot] = selectedStratagems[slot] ? selectedStratagems[slot].name : null;
+    });
+    localStorage.setItem(LOADOUT_STORAGE_KEY, JSON.stringify(loadout));
+  } catch (err) {
+    console.warn('Failed to save loadout:', err);
+  }
+}
+
+// Restore the last uploaded loadout from localStorage
+function restoreLoadout() {
+  try {
+    const raw = localStorage.getItem(LOADOUT_STORAGE_KEY);
+    if (!raw) return;
+    const loadout = JSON.parse(raw);
+    allSlots.forEach(slot => {
+      const name = loadout[slot];
+      if (!name) return;
+      const stratagem = stratagemData.find(s => s.name === name);
+      if (stratagem) {
+        selectedStratagems[slot] = stratagem;
+        updateSlotDisplay(slot, stratagem);
+      }
+    });
+    updatePreview();
+  } catch (err) {
+    console.warn('Failed to restore loadout:', err);
+  }
 }
