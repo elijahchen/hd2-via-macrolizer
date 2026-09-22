@@ -56,6 +56,18 @@
           <label for="hid-slot4">Slot 4:</label>
           <select id="hid-slot4" class="hid-slot-select"></select>
         </div>
+        <div class="hid-slot-row">
+          <label for="hid-slot5">Slot 5:</label>
+          <select id="hid-slot5" class="hid-slot-select"></select>
+        </div>
+        <div class="hid-slot-row">
+          <label for="hid-slotSupport1">Support 1:</label>
+          <select id="hid-slotSupport1" class="hid-slot-select"></select>
+        </div>
+        <div class="hid-slot-row">
+          <label for="hid-slotSupport2">Support 2:</label>
+          <select id="hid-slotSupport2" class="hid-slot-select"></select>
+        </div>
       </div>
       <div id="webhid-warning" class="webhid-warning" style="display: none;">
         ⚠️ WebHID is not supported in this browser. Please use Chrome, Edge, or Opera.
@@ -71,25 +83,40 @@
     <section class="stratagem-section">
       <h2>Step 2: Select Stratagems</h2>
       <div class="macro-slots">
-        <div class="macro-slot" id="slot1">
+        <div class="macro-slot" id="slot1" data-slot="m121">
           <div class="slot-label">Slot 1</div>
           <div class="selected-stratagem" id="selected-m121">(Empty)</div>
           <button id="clear-m121" class="clear-button">Clear</button>
         </div>
-        <div class="macro-slot" id="slot2">
+        <div class="macro-slot" id="slot2" data-slot="m122">
           <div class="slot-label">Slot 2</div>
           <div class="selected-stratagem" id="selected-m122">(Empty)</div>
           <button id="clear-m122" class="clear-button">Clear</button>
         </div>
-        <div class="macro-slot" id="slot3">
+        <div class="macro-slot" id="slot3" data-slot="m123">
           <div class="slot-label">Slot 3</div>
           <div class="selected-stratagem" id="selected-m123">(Empty)</div>
           <button id="clear-m123" class="clear-button">Clear</button>
         </div>
-        <div class="macro-slot" id="slot4">
+        <div class="macro-slot" id="slot4" data-slot="m124">
           <div class="slot-label">Slot 4</div>
           <div class="selected-stratagem" id="selected-m124">(Empty)</div>
           <button id="clear-m124" class="clear-button">Clear</button>
+        </div>
+        <div class="macro-slot" id="slot5" data-slot="m125">
+          <div class="slot-label">Slot 5</div>
+          <div class="selected-stratagem" id="selected-m125">(Empty)</div>
+          <button id="clear-m125" class="clear-button">Clear</button>
+        </div>
+        <div class="macro-slot support-slot" id="slotSupport1" data-slot="support1">
+          <div class="slot-label">Support 1</div>
+          <div class="selected-stratagem" id="selected-support1">(Empty)</div>
+          <button id="clear-support1" class="clear-button">Clear</button>
+        </div>
+        <div class="macro-slot support-slot" id="slotSupport2" data-slot="support2">
+          <div class="slot-label">Support 2</div>
+          <div class="selected-stratagem" id="selected-support2">(Empty)</div>
+          <button id="clear-support2" class="clear-button">Clear</button>
         </div>
         <div class="macro-slot clear-all-slot">
           <button id="clear-all" class="clear-all-button">Clear All</button>
@@ -121,6 +148,18 @@
           <div class="preview-label slot-4-label">Slot 4:</div>
           <div class="preview-content" id="preview-m124">(Empty)</div>
         </div>
+        <div class="preview-slot">
+          <div class="preview-label slot-5-label">Slot 5:</div>
+          <div class="preview-content" id="preview-m125">(Empty)</div>
+        </div>
+        <div class="preview-slot">
+          <div class="preview-label support-1-label">Support 1:</div>
+          <div class="preview-content" id="preview-support1">(Empty)</div>
+        </div>
+        <div class="preview-slot">
+          <div class="preview-label support-2-label">Support 2:</div>
+          <div class="preview-content" id="preview-support2">(Empty)</div>
+        </div>
       </div>
     </section>
   </div>
@@ -142,6 +181,19 @@
       <div class="sticky-slot" id="sticky-slot-m124" data-slot="m124">
         <div class="sticky-slot-icon"></div>
         <button class="sticky-clear-btn" title="Clear Slot 4">&times;</button>
+      </div>
+      <div class="sticky-slot" id="sticky-slot-m125" data-slot="m125">
+        <div class="sticky-slot-icon"></div>
+        <button class="sticky-clear-btn" title="Clear Slot 5">&times;</button>
+      </div>
+      <span class="sticky-support-divider">SUPPORT</span>
+      <div class="sticky-slot sticky-support" id="sticky-slot-support1" data-slot="support1">
+        <div class="sticky-slot-icon"></div>
+        <button class="sticky-clear-btn" title="Clear Support 1">&times;</button>
+      </div>
+      <div class="sticky-slot sticky-support" id="sticky-slot-support2" data-slot="support2">
+        <div class="sticky-slot-icon"></div>
+        <button class="sticky-clear-btn" title="Clear Support 2">&times;</button>
       </div>
     </div>
     <button id="sticky-upload-btn" class="sticky-upload-btn" disabled>Upload to Keyboard</button>
