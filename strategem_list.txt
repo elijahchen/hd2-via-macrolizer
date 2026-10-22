@@ -33,6 +33,8 @@ RL-77 Airburst Rocket Launcher  Down, Down, Up, Right, Down
 StA-X3_W.A.S.P. Launcher  Down, Down, Up, Left, Up
 MGX-42 Bullet Storm  Down, Left, Down, Right, Up, Left
 40-K Meltagun  Down, Left, Up, Left, Left, Down
+AMW-20 Apex  Down, Left, Left, Up, Down, Left
+LAS-44 Nova  Down, Left, Right, Down, Down
 
 Supply
 M-102 Fast Recon Vehicle  Left, Down, Right, Down, Right, Down, Up

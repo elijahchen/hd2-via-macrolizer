@@ -324,6 +324,21 @@ const stratagemData = [
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
   },
   
+  {
+    name: "AMW-20 Apex",
+    code: "DLLUDL",
+    type: "Support Weapons",
+    iconUrl: "https://helldivers.wiki.gg/images/Apex_Stratagem_Icon_Background.svg",
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}"
+  },
+  {
+    name: "LAS-44 Nova",
+    code: "DLRDD",
+    type: "Support Weapons",
+    iconUrl: "https://helldivers.wiki.gg/images/Nova_Stratagem_Icon_Background.svg",
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}"
+  },
+
   // Supply
   {
     name: "M-102 Fast Recon Vehicle",

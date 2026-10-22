@@ -261,6 +261,21 @@ function getLocalIconPaths(stratagem) {
     ];
   }
   
+  if (stratagem.name === 'AMW-20 Apex') {
+    return [
+      `icons/stratagems/Apex_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
+  if (stratagem.name === 'LAS-44 Nova') {
+    return [
+      `icons/stratagems/Nova_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
+
   // Return all formats to try in order of likelihood
   return [
     `icons/stratagems/${snakeSlug}.png`,
@@ -301,6 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('clear-m125').addEventListener('click', () => clearSlot('m125'));
   document.getElementById('clear-support1').addEventListener('click', () => clearSlot('support1'));
   document.getElementById('clear-support2').addEventListener('click', () => clearSlot('support2'));
+  document.getElementById('clear-loadout').addEventListener('click', clearLoadoutSlots);
   document.getElementById('clear-all').addEventListener('click', clearAllSlots);
   
   // Set up download button
@@ -773,6 +789,15 @@ function clearSlot(slot) {
   updatePreview();
 }
 
+// Clear only the main loadout slots (1-5), leaving Support slots intact
+function clearLoadoutSlots() {
+  stratagemSlots.forEach(slot => {
+    selectedStratagems[slot] = null;
+    updateSlotDisplay(slot, null);
+  });
+  updatePreview();
+}
+
 // Clear all slots
 function clearAllSlots() {
   Object.keys(selectedStratagems).forEach(slot => {
@@ -1200,6 +1225,10 @@ function initStickyBar() {
       clearSlot(slot);
     });
   });
+  
+  // Wire up sticky clear buttons
+  document.getElementById('sticky-clear-loadout-btn').addEventListener('click', clearLoadoutSlots);
+  document.getElementById('sticky-clear-all-btn').addEventListener('click', clearAllSlots);
   
   // Wire up sticky upload button
   document.getElementById('sticky-upload-btn').addEventListener('click', handleUploadToKeyboard);
