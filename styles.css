@@ -113,17 +113,14 @@ footer a:hover {
 
 /* Stratagem Selection */
 .macro-slots {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   margin-bottom: 30px;
-  flex-wrap: wrap;
   gap: 10px;
 }
 
 .macro-slot {
-  flex: 1;
-  min-width: 140px;
-  max-width: 200px;
+  min-width: 0;
   padding: 15px;
   background-color: var(--light-gray);
   border-radius: 5px;
@@ -136,6 +133,11 @@ footer a:hover {
 .slot-label {
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+/* Start the support group on a new row below all six loadout slots. */
+.macro-slot[data-slot="support1"] {
+  grid-column: 1;
 }
 
 /* Support slots (M119 / M120) */
@@ -883,14 +885,16 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
   .macro-slots {
-    flex-direction: column;
-  }
-  
-  .macro-slot {
-    margin: 10px 0;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   
   .stratagem-grid {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .macro-slots {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

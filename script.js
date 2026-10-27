@@ -1,20 +1,12 @@
 // Global variables to store state
 // Main loadout slots that auto-register when a stratagem is clicked
-const stratagemSlots = ['m121', 'm122', 'm123', 'm124', 'm125'];
+const stratagemSlots = ['m121', 'm122', 'm123', 'm124', 'm125', 'm126'];
 // Support slots (M119, M120) that do NOT auto-register; only set via drag & drop
 const supportSlots = ['support1', 'support2'];
 // Every slot (used for display/preview/upload/clear/drag-drop)
 const allSlots = [...stratagemSlots, ...supportSlots];
 let uploadedJsonData = null;
-let selectedStratagems = {
-  m121: null,
-  m122: null,
-  m123: null,
-  m124: null,
-  m125: null,
-  support1: null,
-  support2: null
-};
+let selectedStratagems = Object.fromEntries(allSlots.map(slot => [slot, null]));
 // Store the macro indices
 let macroIndices = {
   m121: 120,
@@ -22,6 +14,7 @@ let macroIndices = {
   m123: 122,
   m124: 123,
   m125: 125,
+  m126: 126,
   support1: 119,
   support2: 120
 };
@@ -314,6 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('clear-m123').addEventListener('click', () => clearSlot('m123'));
   document.getElementById('clear-m124').addEventListener('click', () => clearSlot('m124'));
   document.getElementById('clear-m125').addEventListener('click', () => clearSlot('m125'));
+  document.getElementById('clear-m126').addEventListener('click', () => clearSlot('m126'));
   document.getElementById('clear-support1').addEventListener('click', () => clearSlot('support1'));
   document.getElementById('clear-support2').addEventListener('click', () => clearSlot('support2'));
   document.getElementById('clear-loadout').addEventListener('click', clearLoadoutSlots);
@@ -553,7 +547,7 @@ function createMacroSlotsDropdown(availableSlots) {
     </div>
   `;
   
-  // Create dropdown for each of our slots (5 loadout + 2 support)
+  // Create dropdown for each of our slots (6 loadout + 2 support)
   const slots = allSlots;
   slots.forEach((slot, idx) => {
     const slotContainer = document.createElement('div');
@@ -583,6 +577,7 @@ function createMacroSlotsDropdown(availableSlots) {
         'm123': 'M123',
         'm124': 'M124',
         'm125': 'M125',
+        'm126': 'M126',
         'support1': 'M119',
         'support2': 'M120'
       };
@@ -605,7 +600,7 @@ function createMacroSlotsDropdown(availableSlots) {
       }
     }
     
-    // Update only the macro assignment; visible labels remain Slot 1 through Slot 5.
+    // Update only the macro assignment; visible slot labels stay unchanged.
     select.addEventListener('change', function() {
       macroIndices[slot] = parseInt(this.value);
     });
@@ -703,7 +698,7 @@ function handleFileUpload(event) {
 
 // Handle stratagem selection
 function handleStratagemSelection(stratagem) {
-  // Fill all five slots in order, replacing Slot 1 only after all five are filled.
+  // Fill all six slots in order, replacing Slot 1 only after all six are filled.
   const targetSlot = stratagemSlots.find(slot => !selectedStratagems[slot]) || stratagemSlots[0];
   
   // Update selected slot
@@ -789,7 +784,7 @@ function clearSlot(slot) {
   updatePreview();
 }
 
-// Clear only the main loadout slots (1-5), leaving Support slots intact
+// Clear only the main loadout slots (1-6), leaving Support slots intact
 function clearLoadoutSlots() {
   stratagemSlots.forEach(slot => {
     selectedStratagems[slot] = null;
@@ -809,15 +804,7 @@ function clearAllSlots() {
 
 // Reset all selections
 function resetSelections() {
-  selectedStratagems = {
-    m121: null,
-    m122: null,
-    m123: null,
-    m124: null,
-    m125: null,
-    support1: null,
-    support2: null
-  };
+  selectedStratagems = Object.fromEntries(allSlots.map(slot => [slot, null]));
   
   // Check if macro slots are not empty in the uploaded JSON
   if (uploadedJsonData && uploadedJsonData.macros) {
@@ -1046,8 +1033,8 @@ async function handleConnect() {
 // Populate HID macro slot selector dropdowns
 function populateHIDMacroSlotSelector(macroCount) {
   const configDiv = document.getElementById('hid-macro-slots-config');
-  const slots = ['hid-slot1', 'hid-slot2', 'hid-slot3', 'hid-slot4', 'hid-slot5', 'hid-slotSupport1', 'hid-slotSupport2'];
-  const defaultIndices = [121, 122, 123, 124, 125, 119, 120]; // M121-M125 + M119/M120 (support) defaults
+  const slots = ['hid-slot1', 'hid-slot2', 'hid-slot3', 'hid-slot4', 'hid-slot5', 'hid-slot6', 'hid-slotSupport1', 'hid-slotSupport2'];
+  const defaultIndices = [121, 122, 123, 124, 125, 126, 119, 120]; // M121-M126 + M119/M120 (support) defaults
   const slotKeys = [...stratagemSlots, ...supportSlots];
   
   slots.forEach((slotId, idx) => {
@@ -1073,7 +1060,7 @@ function populateHIDMacroSlotSelector(macroCount) {
       macroIndices[slotKey] = idx;
     }
     
-    // Update only the macro assignment; visible labels remain Slot 1 through Slot 5.
+    // Update only the macro assignment; visible slot labels stay unchanged.
     select.addEventListener('change', function() {
       macroIndices[slotKey] = parseInt(this.value);
       console.log(`Updated ${slotKey} to index ${this.value}`);
@@ -1243,7 +1230,7 @@ function assignStratagemToSlot(slot, stratagem) {
 }
 
 // Drag & drop: allow dragging a stratagem from the grid onto any slot
-// (Slots 1-5 and Support 1/2). Dropping replaces the current contents.
+// (Slots 1-6 and Support 1/2). Dropping replaces the current contents.
 function initDragAndDrop() {
   // Drop targets: the macro slot cards and the sticky bar mini-slots
   const dropTargets = [
