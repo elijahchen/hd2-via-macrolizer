@@ -355,6 +355,13 @@ const stratagemData = [
     macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}"
   },
   {
+    name: "M-104 Incinerator FRV",
+    code: "LDRLDUU",
+    type: "Supply",
+    iconUrl: "https://helldivers.wiki.gg/images/Incinerator_FRV_Stratagem_Icon_Background.svg",
+    macroString: "{+KC_I}{30}{-KC_I}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_RGHT}{15}{-KC_RGHT}{15}{+KC_LEFT}{15}{-KC_LEFT}{15}{+KC_DOWN}{15}{-KC_DOWN}{15}{+KC_UP}{15}{-KC_UP}{15}{+KC_UP}{15}{-KC_UP}{15}"
+  },
+  {
     name: "EXO-49 Emancipator Exosuit",
     code: "LDRULDU",
     type: "Supply",

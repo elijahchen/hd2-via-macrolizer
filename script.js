@@ -232,6 +232,13 @@ function getLocalIconPaths(stratagem) {
       `icons/stratagems/${wikiSlug}.png`
     ];
   }
+  if (stratagem.name === 'M-104 Incinerator FRV') {
+    return [
+      `icons/stratagems/Incinerator_FRV_Stratagem_Icon.svg`,
+      `icons/stratagems/${snakeSlug}.png`,
+      `icons/stratagems/${wikiSlug}.png`
+    ];
+  }
   if (stratagem.name === 'AX/FLAM-75 Guard Dog Hot Dog') {
     return [
       `icons/stratagems/Guard_Dog_Hot_Dog_Stratagem_Icon.svg`,
